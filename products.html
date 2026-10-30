@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop Handcrafted Furniture — Home Furniture Design</title>
+  <meta name="description" content="Explore our handcrafted collection of solid wood sofas, platform beds, dining tables, and accent chairs in warm earthy aesthetics." />
+
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Shared Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       TOP ANNOUNCEMENT BAR WITH LANGUAGE TOGGLE
+       ========================================================================== -->
+  <div class="top-bar">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; max-width: 1240px; margin: 0 auto;">
+      <p style="margin: 0 auto;">🌿 Seasonal Spring Sale: Enjoy <span>Up to 30% Off</span> Handcrafted Wood Collections | Code: <span>EARTH30</span></p>
+      <button class="lang-toggle-btn" id="langToggleBtn" aria-label="Toggle language">
+        <i class="fa-solid fa-globe"></i>
+        <span>हिंदी</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       NAVBAR
+       ========================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo & Name -->
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Home Furniture Design Logo" class="logo-img" onerror="this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=120&q=80'" />
+        <div class="logo-text-wrap">
+          <span class="logo-text">Home Furniture Design</span>
+          <span class="logo-subtext">Designing Comfort · Defining Style</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link" data-i18n="navHome">Home</a></li>
+          <li><a href="products.html" class="nav-link active" data-i18n="navProducts">Shop</a></li>
+          <li><a href="sofa-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-couch"></i> Sofa Manager</a></li>
+          <li><a href="bed-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-bed"></i> Bed Manager</a></li>
+          <li><a href="chair-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-chair"></i> Chair Manager</a></li>
+          <li><a href="table-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-table"></i> Table Manager</a></li>
+          <li><a href="wardrobe-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-door-closed"></i> Wardrobe Manager</a></li>
+          <li><a href="decor-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-lightbulb"></i> Decor Manager</a></li>
+          <li><a href="about.html" class="nav-link" data-i18n="navAbout">About</a></li>
+          <li><a href="contact.html" class="nav-link" data-i18n="navContact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Icons (Search, Cart, Mobile Toggle) -->
+      <div class="nav-actions">
+        <!-- Search Trigger Icon Button -->
+        <button class="nav-icon-btn" id="openSearchBtn" aria-label="Open Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <!-- Cart Icon Button with dynamic Item Count Badge -->
+        <a href="cart.html" class="nav-icon-btn" id="openCartBtn" aria-label="Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartCountBadge">0</span>
+        </a>
+
+        <!-- Hamburger Menu Button for Mobile -->
+        <div class="menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown / Drawer Menu -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-item">Home</a></li>
+        <li><a href="products.html" class="mobile-nav-item active">Shop Products</a></li>
+        <li><a href="sofa-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-couch"></i> Sofa Management Studio</a></li>
+        <li><a href="bed-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-bed"></i> Bed Management Studio</a></li>
+        <li><a href="chair-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-chair"></i> Chair Management Studio</a></li>
+        <li><a href="table-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-table"></i> Table Management Studio</a></li>
+        <li><a href="wardrobe-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-door-closed"></i> Wardrobe Management Studio</a></li>
+        <li><a href="decor-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-lightbulb"></i> Decor Management Studio</a></li>
+        <li><a href="about.html" class="mobile-nav-item">About Us</a></li>
+        <li><a href="contact.html" class="mobile-nav-item">Contact Us</a></li>
+        <li><a href="cart.html" class="mobile-nav-item">Shopping Cart</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       BREADCRUMBS BAR
+       ========================================================================== -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li><a href="index.html"><i class="fa-solid fa-house" style="font-size: 0.8rem;"></i> Home</a></li>
+        <li><span class="separator">/</span></li>
+        <li class="current">Shop Furniture</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       PAGE BANNER HEADER
+       ========================================================================== -->
+  <section class="page-banner">
+    <div class="container">
+      <span class="page-banner-tag">Artisan Handcrafted</span>
+      <h1 class="page-banner-title">Our Furniture Catalog</h1>
+      <p class="page-banner-subtitle">
+        Explore sustainably harvested solid hardwoods, organic bouclé upholstery, and hand-woven natural cane. Every piece designed for timeless tranquility.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CATALOG PRODUCTS SECTION
+       ========================================================================== -->
+  <section class="section" style="padding-top: 50px;">
+    <div class="container">
+
+      <!-- Catalog Controls: Category Filters, Search & Sort -->
+      <div class="catalog-toolbar">
+        
+        <!-- Category Filter Buttons [Sofa, Bed, Table, Chair] -->
+        <div class="catalog-filters">
+          <button class="category-filter-btn active" data-category="all">
+            <i class="fa-solid fa-border-all"></i> All Products
+          </button>
+          <button class="category-filter-btn" data-category="sofa">
+            <i class="fa-solid fa-couch"></i> Sofas
+          </button>
+          <button class="category-filter-btn" data-category="bed">
+            <i class="fa-solid fa-bed"></i> Beds
+          </button>
+          <button class="category-filter-btn" data-category="table">
+            <i class="fa-solid fa-utensils"></i> Tables
+          </button>
+          <button class="category-filter-btn" data-category="chair">
+            <i class="fa-solid fa-chair"></i> Chairs
+          </button>
+          <button class="category-filter-btn" data-category="decor">
+            <i class="fa-solid fa-lightbulb"></i> Decor
+          </button>
+        </div>
+
+        <!-- Search Bar and Sort Select -->
+        <div class="catalog-search-sort">
+          <div class="catalog-search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="catalogSearchInput" class="catalog-search-input" placeholder="Search by name or wood..." />
+          </div>
+
+          <select id="catalogSortSelect" class="catalog-sort-select" aria-label="Sort products">
+            <option value="featured">Featured Collection</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+            <option value="name">Name: A to Z</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- Results Count Bar -->
+      <div class="results-count-bar">
+        <span id="catalogResultsCount">Showing <strong>10</strong> handcrafted products</span>
+        <span style="font-size: 0.85rem;"><i class="fa-solid fa-circle-check" style="color: var(--color-success);"></i> Free Delivery on orders over ₹500</span>
+      </div>
+
+      <!-- Products Grid (Dynamically rendered with fallback markup) -->
+      <div class="products-grid" id="catalogProductsGrid">
+        <!-- Rendered dynamically by script.js initProductsPage() -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       VALUE PROPOSITIONS / CRAFTSMANSHIP GUARANTEE
+       ========================================================================== -->
+  <section class="craft-banner">
+    <div class="container">
+      <div class="craft-grid">
+        <div class="craft-item">
+          <i class="fa-solid fa-tree craft-icon"></i>
+          <div>
+            <h4>100% Solid Hardwood</h4>
+            <p>Consciously harvested teak, walnut, and oak crafted to endure lifetimes.</p>
+          </div>
+        </div>
+        <div class="craft-item">
+          <i class="fa-solid fa-hands-holding-circle craft-icon"></i>
+          <div>
+            <h4>Master Artisan Built</h4>
+            <p>Traditional wood joinery finished with non-toxic natural plant waxes.</p>
+          </div>
+        </div>
+        <div class="craft-item">
+          <i class="fa-solid fa-truck-ramp-box craft-icon"></i>
+          <div>
+            <h4>White Glove In-Home Setup</h4>
+            <p>Insured delivery directly to your room of choice with packaging removal.</p>
+          </div>
+        </div>
+        <div class="craft-item">
+          <i class="fa-solid fa-award craft-icon"></i>
+          <div>
+            <h4>10-Year Warranty</h4>
+            <p>Complete peace of mind covering structural integrity on all frames.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       NEWSLETTER CALLOUT
+       ========================================================================== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-card">
+        <div class="newsletter-content">
+          <span class="section-tag" style="background-color: rgba(255,255,255,0.15); color: #f7d5b8;">Join The Atelier</span>
+          <h2 class="newsletter-title">Receive 15% Off Your First Order</h2>
+          <p class="newsletter-subtitle">
+            Subscribe for early previews of seasonal handcrafted releases, wood styling tutorials, and private design invitations.
+          </p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Thank you for subscribing! Your 15% code is WELCOME15.'); this.reset();">
+            <input type="email" class="newsletter-input" placeholder="Enter your email address..." required />
+            <button type="submit" class="btn btn-primary newsletter-btn">
+              <span>Claim 15% Off</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </form>
+          <p class="newsletter-privacy"><i class="fa-solid fa-shield-halved"></i> We respect your privacy. No spam, strictly thoughtful design stories.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Column 1: Brand & About -->
+        <div class="footer-about">
+          <div class="logo footer-logo">
+            <img src="logo.png" alt="Home Furniture Design Logo" class="logo-img footer-logo-img" onerror="this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=120&q=80'" />
+            <div class="logo-text-wrap">
+              <span class="logo-text">Home Furniture Design</span>
+              <span class="logo-subtext">Designing Comfort · Defining Style</span>
+            </div>
+          </div>
+          <p class="footer-about-text">
+            We design and craft enduring, warm earthy furniture created from consciously sourced hardwoods. Every piece brings poise, tranquility, and lasting beauty to contemporary living spaces.
+          </p>
+          <ul class="contact-info-list">
+            <li><i class="fa-solid fa-location-dot"></i> 42 Heritage Studio Row, Crafts District</li>
+            <li><i class="fa-solid fa-phone"></i> +91 (0) 98765 43210</li>
+            <li><i class="fa-solid fa-envelope"></i> hello@homefurnituredesign.com</li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Shop By Category</h4>
+          <ul class="footer-links">
+            <li><a href="products.html?cat=sofa">Living Room Sofas</a></li>
+            <li><a href="products.html?cat=bed">Bedroom Suites</a></li>
+            <li><a href="products.html?cat=table">Dining & Kitchen Tables</a></li>
+            <li><a href="products.html?cat=chair">Accent & Dining Chairs</a></li>
+            <li><a href="products.html?cat=decor">Handmade Lighting & Decor</a></li>
+            <li><a href="products.html">All Catalog Items</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Customer Care -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">Wood Care & Maintenance</a></li>
+            <li><a href="cart.html">View Shopping Cart</a></li>
+            <li><a href="about.html">Shipping & White Glove Delivery</a></li>
+            <li><a href="about.html">30-Day In-Home Trial</a></li>
+            <li><a href="about.html">10-Year Warranty</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Social Media & Workshop Hours -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Connect With Us</h4>
+          <p class="footer-about-text" style="margin-top: 0;">
+            Follow our design atelier for daily behind-the-scenes carpentry stories and styling inspiration.
+          </p>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener" class="social-btn" aria-label="Pinterest">
+              <i class="fa-brands fa-pinterest-p"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+          <p class="footer-hours-note">
+            <i class="fa-regular fa-clock"></i> Showroom Hours: Mon - Sat: 10:00 AM – 8:00 PM
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Copyright & Payment Methods -->
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> Home Furniture Design. All rights reserved. Crafted with care in warm earthy tones.</p>
+        <div class="payment-icons">
+          <i class="fa-brands fa-cc-visa" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+          <i class="fa-brands fa-cc-amex" title="American Express"></i>
+          <i class="fa-brands fa-cc-paypal" title="PayPal"></i>
+          <i class="fa-brands fa-cc-apple-pay" title="Apple Pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       SHOPPING CART SLIDE-OUT DRAWER
+       ========================================================================== -->
+  <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>
+        <i class="fa-solid fa-bag-shopping" style="color: var(--color-accent);"></i>
+        <span data-i18n="yourCart">Your Cart</span>
+      </h3>
+      <button class="close-cart-btn" id="closeCartBtn" aria-label="Close cart">&times;</button>
+    </div>
+
+    <!-- Cart items list (dynamically populated by script.js) -->
+    <div class="cart-items-container" id="cartItemsList"></div>
+
+    <!-- Cart Footer & Checkout -->
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Estimated Subtotal:</span>
+        <span id="cartSubtotalAmount">₹0.00</span>
+      </div>
+      <a href="cart.html" class="checkout-btn" style="text-align: center; text-decoration: none;">
+        <span>View Full Cart & Checkout</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       SEARCH MODAL
+       ========================================================================== -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-modal-box">
+      <div class="search-input-wrap">
+        <i class="fa-solid fa-magnifying-glass search-input-icon"></i>
+        <input type="text" id="siteSearchInput" placeholder="Type to search (e.g., Sofa, Bed, Table, Chair)..." />
+        <button class="close-search-btn" id="closeSearchBtn">&times;</button>
+      </div>
+      <div class="search-quick-tags">
+        <span class="search-tags-label">Quick Search:</span>
+        <span class="search-tag" onclick="quickSearch('sofa')">Bouclé Sofa</span>
+        <span class="search-tag" onclick="quickSearch('bed')">Oak Platform Bed</span>
+        <span class="search-tag" onclick="quickSearch('table')">Round Walnut Table</span>
+        <span class="search-tag" onclick="quickSearch('chair')">Cane Armchair</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toastNotification">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMessage">Item added to your shopping cart!</span>
+  </div>
+
+  <!-- Scroll to top button -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Shared Javascript -->
+  <script src="script.js"></script>
+</body>
+</html>

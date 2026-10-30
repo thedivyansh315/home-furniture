@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Home Furniture Design</title>
+  <meta name="description" content="Get in touch with Home Furniture Design. Reach out via WhatsApp, phone, email, or visit our studio showroom." />
+
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Shared Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       TOP ANNOUNCEMENT BAR WITH LANGUAGE TOGGLE
+       ========================================================================== -->
+  <div class="top-bar">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; max-width: 1240px; margin: 0 auto;">
+      <p style="margin: 0 auto;">🌿 Seasonal Spring Sale: Enjoy <span>Up to 30% Off</span> Handcrafted Wood Collections | Code: <span>EARTH30</span></p>
+      <button class="lang-toggle-btn" id="langToggleBtn" aria-label="Toggle language">
+        <i class="fa-solid fa-globe"></i>
+        <span>हिंदी</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       NAVBAR
+       ========================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo & Name -->
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Home Furniture Design Logo" class="logo-img" onerror="this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=120&q=80'" />
+        <div class="logo-text-wrap">
+          <span class="logo-text">Home Furniture Design</span>
+          <span class="logo-subtext">Designing Comfort · Defining Style</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link" data-i18n="navHome">Home</a></li>
+          <li><a href="products.html" class="nav-link" data-i18n="navProducts">Shop</a></li>
+          <li><a href="sofa-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-couch"></i> Sofa Manager</a></li>
+          <li><a href="bed-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-bed"></i> Bed Manager</a></li>
+          <li><a href="chair-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-chair"></i> Chair Manager</a></li>
+          <li><a href="table-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-table"></i> Table Manager</a></li>
+          <li><a href="wardrobe-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-door-closed"></i> Wardrobe Manager</a></li>
+          <li><a href="decor-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-lightbulb"></i> Decor Manager</a></li>
+          <li><a href="about.html" class="nav-link" data-i18n="navAbout">About</a></li>
+          <li><a href="contact.html" class="nav-link active" data-i18n="navContact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Icons (Search, Cart, Mobile Toggle) -->
+      <div class="nav-actions">
+        <!-- Search Trigger Icon Button -->
+        <button class="nav-icon-btn" id="openSearchBtn" aria-label="Open Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <!-- Cart Icon Button with dynamic Item Count Badge -->
+        <a href="cart.html" class="nav-icon-btn" id="openCartBtn" aria-label="Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartCountBadge">0</span>
+        </a>
+
+        <!-- Hamburger Menu Button for Mobile -->
+        <div class="menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown / Drawer Menu -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-item">Home</a></li>
+        <li><a href="products.html" class="mobile-nav-item">Shop Products</a></li>
+        <li><a href="sofa-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-couch"></i> Sofa Management Studio</a></li>
+        <li><a href="bed-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-bed"></i> Bed Management Studio</a></li>
+        <li><a href="chair-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-chair"></i> Chair Management Studio</a></li>
+        <li><a href="table-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-table"></i> Table Management Studio</a></li>
+        <li><a href="wardrobe-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-door-closed"></i> Wardrobe Management Studio</a></li>
+        <li><a href="decor-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-lightbulb"></i> Decor Management Studio</a></li>
+        <li><a href="about.html" class="mobile-nav-item">About Us</a></li>
+        <li><a href="contact.html" class="mobile-nav-item active">Contact Us</a></li>
+        <li><a href="cart.html" class="mobile-nav-item">Shopping Cart</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       BREADCRUMBS BAR
+       ========================================================================== -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <ul class="breadcrumbs">
+        <li><a href="index.html"><i class="fa-solid fa-house" style="font-size: 0.8rem;"></i> Home</a></li>
+        <li><span class="separator">/</span></li>
+        <li class="current">Contact Us</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       PAGE BANNER HEADER
+       ========================================================================== -->
+  <section class="page-banner">
+    <div class="container">
+      <span class="page-banner-tag">We're Here For You</span>
+      <h1 class="page-banner-title">Let's Craft Something Beautiful</h1>
+      <p class="page-banner-subtitle">
+        Whether you desire tailored dimensions, wood sample finishes, or delivery scheduling, our design concierge team is delighted to assist.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTACT MAIN SECTION (Info + WhatsApp + Map | Form)
+       ========================================================================== -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-layout-grid">
+
+        <!-- Left Column: Details, WhatsApp Card, Map Placeholder -->
+        <div class="contact-sidebar">
+          
+          <!-- Contact Detail Card -->
+          <div class="contact-info-card">
+            <h3>Showroom & Atelier</h3>
+            <ul class="contact-detail-items">
+              <li class="contact-detail-item">
+                <div class="contact-icon-pill">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                  <h5>Studio Location</h5>
+                  <p>42 Heritage Studio Row, Crafts District, City 400001</p>
+                  <button type="button" onclick="copyShowroomAddress()" style="color: var(--color-accent); font-size: 0.82rem; font-weight: 600; cursor: pointer; margin-top: 4px; display: inline-flex; align-items: center; gap: 4px;">
+                    <i class="fa-regular fa-copy"></i> Copy Address
+                  </button>
+                </div>
+              </li>
+
+              <li class="contact-detail-item">
+                <div class="contact-icon-pill">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                  <h5>Direct Call Line</h5>
+                  <a href="tel:+919876543210">+91 (0) 98765 43210</a>
+                  <p style="font-size: 0.82rem; color: var(--color-text-muted);">Toll-Free Across India</p>
+                </div>
+              </li>
+
+              <li class="contact-detail-item">
+                <div class="contact-icon-pill">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <h5>Email Support</h5>
+                  <a href="mailto:hello@homefurnituredesign.com">hello@homefurnituredesign.com</a>
+                  <p style="font-size: 0.82rem; color: var(--color-text-muted);">Responses within 4 business hours</p>
+                </div>
+              </li>
+
+              <li class="contact-detail-item">
+                <div class="contact-icon-pill">
+                  <i class="fa-regular fa-clock"></i>
+                </div>
+                <div>
+                  <h5>Visiting Hours</h5>
+                  <p>Monday – Saturday: 10:00 AM – 8:00 PM</p>
+                  <p style="font-size: 0.82rem; color: var(--color-text-muted);">Sunday: By Private Appointment Only</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Prominent WhatsApp CTA Box -->
+          <div class="whatsapp-box">
+            <i class="fa-brands fa-whatsapp" style="font-size: 3rem; margin-bottom: 10px;"></i>
+            <h3>Instant WhatsApp Consultation</h3>
+            <p>
+              Connect directly with our master furniture consultant for immediate custom sizing queries, live wood video previews, and quote estimates.
+            </p>
+            <a href="https://wa.me/919876543210?text=Hello%20Home%20Furniture%20Design%2C%20I%20would%20like%20to%20inquire%20about%20your%20handcrafted%20furniture." target="_blank" rel="noopener" class="btn-whatsapp-direct">
+              <i class="fa-brands fa-whatsapp" style="font-size: 1.3rem;"></i>
+              <span>Start WhatsApp Chat (+91 98765 43210)</span>
+            </a>
+          </div>
+
+          <!-- Interactive Map Placeholder -->
+          <div class="map-placeholder-card">
+            <div class="map-header">
+              <span><i class="fa-solid fa-map-location-dot"></i> Studio Location Map</span>
+              <span style="font-size: 0.8rem; color: var(--color-accent);">Interactive View</span>
+            </div>
+            
+            <div class="map-view-canvas">
+              <div class="map-road-overlay"></div>
+              <div class="map-marker-wrap">
+                <div class="map-pin">
+                  <i class="fa-solid fa-couch"></i>
+                </div>
+                <div class="map-pulse"></div>
+                <div class="map-tooltip">Home Furniture Design Atelier</div>
+              </div>
+            </div>
+
+            <div class="map-footer-bar">
+              <span style="color: var(--color-text-muted);">Heritage Studio Row, Crafts District</span>
+              <a href="https://maps.google.com" target="_blank" rel="noopener">
+                <span>Open in Google Maps</span>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Contact Inquiry Form -->
+        <div class="contact-form-card">
+          <span class="section-tag">Send An Inquiry</span>
+          <h2>We're Listening</h2>
+          <p>
+            Fill out the form below and our team will get in touch promptly with quotes, material samples, or consultation details.
+          </p>
+
+          <form id="contactForm">
+            
+            <div class="form-grid-row">
+              <div class="form-group">
+                <label for="contactName" class="form-label">Full Name <span class="req">*</span></label>
+                <input type="text" id="contactName" class="form-input" placeholder="e.g., Rajesh Sharma" required />
+              </div>
+
+              <div class="form-group">
+                <label for="contactPhone" class="form-label">Phone Number <span class="req">*</span></label>
+                <input type="tel" id="contactPhone" class="form-input" placeholder="+91 98765 43210" required />
+              </div>
+            </div>
+
+            <div class="form-grid-row">
+              <div class="form-group">
+                <label for="contactEmail" class="form-label">Email Address <span class="req">*</span></label>
+                <input type="email" id="contactEmail" class="form-input" placeholder="rajesh@example.com" required />
+              </div>
+
+              <div class="form-group">
+                <label for="contactSubject" class="form-label">Inquiry Topic</label>
+                <select id="contactSubject" class="form-select">
+                  <option value="custom">Custom Dimensions & Wood Finish</option>
+                  <option value="quote">General Price Quote & Order</option>
+                  <option value="delivery">White Glove Delivery Query</option>
+                  <option value="visit">Schedule Studio Showroom Visit</option>
+                  <option value="warranty">Warranty or Care Advice</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contactMessage" class="form-label">Your Message <span class="req">*</span></label>
+              <textarea id="contactMessage" class="form-textarea" placeholder="Describe the room, furniture piece, or custom dimensions you have in mind..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-btn-submit">
+              <span>Send Message</span>
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+            <!-- Success Confirmation Card -->
+            <div class="form-success-card" id="formSuccessCard">
+              <i class="fa-solid fa-circle-check"></i>
+              <h4>Inquiry Received!</h4>
+              <p>Thank you for reaching out to Home Furniture Design. An artisan design consultant will respond within 4 business hours.</p>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FREQUENTLY ASKED QUESTIONS (FAQ) ACCORDION
+       ========================================================================== -->
+  <section class="faq-section">
+    <div class="container faq-container">
+      <div class="section-header">
+        <span class="section-tag">Quick Answers</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">Helpful insights into our custom crafting process, warranties, and delivery options.</p>
+      </div>
+
+      <div class="faq-item active">
+        <button class="faq-question">
+          <span>Can I customize the dimensions or wood stain of a furniture piece?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, absolutely! Because we build each piece in our own artisan carpentry workshop, we can modify length, depth, height, or timber type (Teak, White Oak, or Walnut). Simply mention your desired measurements in the contact form or send us a WhatsApp message.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>What does White Glove In-Home Delivery include?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Our two-person professional delivery team brings the furniture directly into the room of your choice, unboxes it, performs any required placement, and takes away all recyclable packaging materials. It is 100% free on all orders over ₹500.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>How does the 30-Day In-Home Trial work?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Once delivered, you have 30 days to live with the piece in your lighting and decor. If it doesn't fit your expectations, contact us for an effortless return and 100% refund, no restocking fees charged.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          <span>Can you send timber and fabric swatch samples?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! We can express-courier our wood sample box (natural ash, smoked oak, walnut, and golden teak) along with bouclé and velvet fabric swatches directly to your doorstep so you can verify color matching with your flooring and wall paint.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Column 1: Brand & About -->
+        <div class="footer-about">
+          <div class="logo footer-logo">
+            <img src="logo.png" alt="Home Furniture Design Logo" class="logo-img footer-logo-img" onerror="this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=120&q=80'" />
+            <div class="logo-text-wrap">
+              <span class="logo-text">Home Furniture Design</span>
+              <span class="logo-subtext">Designing Comfort · Defining Style</span>
+            </div>
+          </div>
+          <p class="footer-about-text">
+            We design and craft enduring, warm earthy furniture created from consciously sourced hardwoods. Every piece brings poise, tranquility, and lasting beauty to contemporary living spaces.
+          </p>
+          <ul class="contact-info-list">
+            <li><i class="fa-solid fa-location-dot"></i> 42 Heritage Studio Row, Crafts District</li>
+            <li><i class="fa-solid fa-phone"></i> +91 (0) 98765 43210</li>
+            <li><i class="fa-solid fa-envelope"></i> hello@homefurnituredesign.com</li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Shop By Category</h4>
+          <ul class="footer-links">
+            <li><a href="products.html?cat=sofa">Living Room Sofas</a></li>
+            <li><a href="products.html?cat=bed">Bedroom Suites</a></li>
+            <li><a href="products.html?cat=table">Dining & Kitchen Tables</a></li>
+            <li><a href="products.html?cat=chair">Accent & Dining Chairs</a></li>
+            <li><a href="products.html?cat=decor">Handmade Lighting & Decor</a></li>
+            <li><a href="products.html">All Catalog Items</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Customer Care -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">Wood Care & Maintenance</a></li>
+            <li><a href="cart.html">View Shopping Cart</a></li>
+            <li><a href="about.html">Shipping & White Glove Delivery</a></li>
+            <li><a href="about.html">30-Day In-Home Trial</a></li>
+            <li><a href="about.html">10-Year Warranty</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Social Media & Workshop Hours -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Connect With Us</h4>
+          <p class="footer-about-text" style="margin-top: 0;">
+            Follow our design atelier for daily behind-the-scenes carpentry stories and styling inspiration.
+          </p>
+          <div class="social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener" class="social-btn" aria-label="Pinterest">
+              <i class="fa-brands fa-pinterest-p"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener" class="social-btn" aria-label="Twitter">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+          <p class="footer-hours-note">
+            <i class="fa-regular fa-clock"></i> Showroom Hours: Mon - Sat: 10:00 AM – 8:00 PM
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Copyright & Payment Methods -->
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear"></span> Home Furniture Design. All rights reserved. Crafted with care in warm earthy tones.</p>
+        <div class="payment-icons">
+          <i class="fa-brands fa-cc-visa" title="Visa"></i>
+          <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+          <i class="fa-brands fa-cc-amex" title="American Express"></i>
+          <i class="fa-brands fa-cc-paypal" title="PayPal"></i>
+          <i class="fa-brands fa-cc-apple-pay" title="Apple Pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       SHOPPING CART SLIDE-OUT DRAWER
+       ========================================================================== -->
+  <div class="cart-drawer-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>
+        <i class="fa-solid fa-bag-shopping" style="color: var(--color-accent);"></i>
+        <span data-i18n="yourCart">Your Cart</span>
+      </h3>
+      <button class="close-cart-btn" id="closeCartBtn" aria-label="Close cart">&times;</button>
+    </div>
+
+    <!-- Cart items list (dynamically populated by script.js) -->
+    <div class="cart-items-container" id="cartItemsList"></div>
+
+    <!-- Cart Footer & Checkout -->
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Estimated Subtotal:</span>
+        <span id="cartSubtotalAmount">₹0.00</span>
+      </div>
+      <a href="cart.html" class="checkout-btn" style="text-align: center; text-decoration: none;">
+        <span>View Full Cart & Checkout</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       SEARCH MODAL
+       ========================================================================== -->
+  <div class="search-modal" id="searchModal">
+    <div class="search-modal-box">
+      <div class="search-input-wrap">
+        <i class="fa-solid fa-magnifying-glass search-input-icon"></i>
+        <input type="text" id="siteSearchInput" placeholder="Type to search (e.g., Sofa, Bed, Table, Chair)..." />
+        <button class="close-search-btn" id="closeSearchBtn">&times;</button>
+      </div>
+      <div class="search-quick-tags">
+        <span class="search-tags-label">Quick Search:</span>
+        <span class="search-tag" onclick="quickSearch('sofa')">Bouclé Sofa</span>
+        <span class="search-tag" onclick="quickSearch('bed')">Oak Platform Bed</span>
+        <span class="search-tag" onclick="quickSearch('table')">Round Walnut Table</span>
+        <span class="search-tag" onclick="quickSearch('chair')">Cane Armchair</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toastNotification">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMessage">Inquiry submitted</span>
+  </div>
+
+  <!-- Scroll to top button -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Shared Javascript -->
+  <script src="script.js"></script>
+</body>
+</html>

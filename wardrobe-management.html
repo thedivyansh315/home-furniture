@@ -1,0 +1,2680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wardrobes & Storage Atelier — Home Furniture Design</title>
+  <meta name="description" content="Explore and manage luxury handcrafted solid wood wardrobes, sliding armoires, walk-in closet suites, and modular storage with real-time editing and shopping cart integration." />
+
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & THEME (Warm Earthy Luxury Palette)
+       ========================================================================== */
+    :root {
+      --color-primary: #5a3e2b;
+      --color-primary-dark: #3a2618;
+      --color-primary-light: #7b5941;
+      --color-accent: #c17a4a;
+      --color-accent-hover: #ab6537;
+      --color-cream: #faf7f2;
+      --color-beige-light: #f5efe6;
+      --color-beige-medium: #ebdccb;
+      --color-beige-dark: #dac3ab;
+      --color-text-main: #2b221b;
+      --color-text-muted: #6e6155;
+      --color-white: #ffffff;
+      --color-success: #3f7b4c;
+      --color-danger: #c0392b;
+      --color-danger-hover: #a93226;
+      --color-warning: #e67e22;
+
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-pill: 50px;
+
+      --shadow-sm: 0 2px 8px rgba(90, 62, 43, 0.05);
+      --shadow-md: 0 8px 24px rgba(90, 62, 43, 0.08);
+      --shadow-lg: 0 16px 40px rgba(90, 62, 43, 0.14);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Global Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-cream);
+      color: var(--color-text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background: none;
+      transition: var(--transition);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Announcement Bar */
+    .top-bar {
+      background: linear-gradient(90deg, #3a2618 0%, #5a3e2b 50%, #3a2618 100%);
+      color: #ebdccb;
+      padding: 8px 16px;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .top-bar span {
+      color: #ffd8a8;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       STICKY NAVBAR
+       ========================================================================== */
+    .navbar {
+      background-color: rgba(250, 247, 242, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-beige-medium);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: contain;
+      background-color: var(--color-white);
+      box-shadow: 0 2px 8px rgba(90, 62, 43, 0.12);
+      border: 1.5px solid var(--color-beige-medium);
+      transition: var(--transition);
+    }
+
+    .logo:hover .logo-img {
+      transform: scale(1.05);
+      border-color: var(--color-accent);
+    }
+
+    .logo-text-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      line-height: 1.1;
+    }
+
+    .logo-subtext {
+      font-size: 0.62rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      position: relative;
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--color-accent);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-accent);
+      border-radius: 2px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      background-color: var(--color-white);
+      border: 1px solid var(--color-beige-medium);
+      position: relative;
+      font-size: 1.05rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-icon-btn:hover {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      border-color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      font-size: 0.68rem;
+      font-weight: 700;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 4px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--color-white);
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .cart-badge.bump {
+      transform: scale(1.3);
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 26px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 2.5px;
+      background-color: var(--color-primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 76px;
+      left: 0;
+      width: 100%;
+      background: var(--color-white);
+      border-bottom: 2px solid var(--color-beige-medium);
+      padding: 20px 24px;
+      box-shadow: var(--shadow-md);
+      z-index: 999;
+    }
+
+    .mobile-drawer.open {
+      display: block;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .mobile-nav-item {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--color-beige-light);
+    }
+
+    .mobile-nav-item.active {
+      color: var(--color-accent);
+    }
+
+    /* ==========================================================================
+       HERO / ATELIER HEADER SECTION
+       ========================================================================== */
+    .atelier-hero {
+      background: linear-gradient(135deg, rgba(90, 62, 43, 0.04) 0%, rgba(193, 122, 74, 0.08) 100%), var(--color-cream);
+      border-bottom: 1px solid var(--color-beige-medium);
+      padding: 44px 0 36px 0;
+      position: relative;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .hero-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .hero-title-wrap {
+      max-width: 720px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--color-white);
+      color: var(--color-accent);
+      border: 1px solid var(--color-beige-dark);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    .hero-cta-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-add-product {
+      background: linear-gradient(135deg, var(--color-accent) 0%, #ab6537 100%);
+      color: var(--color-white);
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 16px rgba(193, 122, 74, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-add-product:hover {
+      background: linear-gradient(135deg, #ab6537 0%, #8c4e25 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(193, 122, 74, 0.45);
+    }
+
+    /* Live Studio Metrics Dashboard */
+    .metrics-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .metric-card {
+      background: var(--color-white);
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-beige-medium);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: var(--transition);
+    }
+
+    .metric-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--color-beige-dark);
+      box-shadow: var(--shadow-md);
+    }
+
+    .metric-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--color-beige-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent);
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .metric-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-val {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      line-height: 1.1;
+    }
+
+    .metric-label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       CONTROLS: SEARCH, FILTERS, VIEW SWITCH
+       ========================================================================== */
+    .controls-section {
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-beige-medium);
+      padding: 18px 0;
+      position: sticky;
+      top: 76px;
+      z-index: 900;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .controls-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .search-box-wrap {
+      position: relative;
+      flex: 1 1 280px;
+      max-width: 380px;
+    }
+
+    .search-box-wrap i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 16px 10px 38px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--color-beige-medium);
+      background-color: var(--color-cream);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--color-text-main);
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .search-input:focus {
+      border-color: var(--color-accent);
+      background-color: var(--color-white);
+      box-shadow: 0 0 0 3px rgba(193, 122, 74, 0.15);
+    }
+
+    .filter-tools {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .select-dropdown {
+      padding: 9px 14px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--color-beige-medium);
+      background-color: var(--color-white);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      outline: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .select-dropdown:hover, .select-dropdown:focus {
+      border-color: var(--color-accent);
+    }
+
+    .view-toggles {
+      display: flex;
+      background: var(--color-beige-light);
+      padding: 3px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-beige-medium);
+    }
+
+    .view-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+
+    .view-btn.active {
+      background-color: var(--color-white);
+      color: var(--color-accent);
+      box-shadow: 0 2px 6px rgba(90, 62, 43, 0.12);
+    }
+
+    .btn-reset-db {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      background: var(--color-cream);
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px dashed var(--color-beige-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-reset-db:hover {
+      color: var(--color-danger);
+      border-color: var(--color-danger);
+      background-color: rgba(192, 57, 43, 0.05);
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT: PRODUCT GRID & TABLE VIEWS
+       ========================================================================== */
+    .main-content {
+      padding: 40px 0 80px 0;
+      flex-grow: 1;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    /* Wardrobe Product Card */
+    .wardrobe-card {
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-beige-medium);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: var(--transition);
+      animation: fadeInCard 0.4s ease forwards;
+    }
+
+    @keyframes fadeInCard {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .wardrobe-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-beige-dark);
+    }
+
+    .card-thumb-wrap {
+      position: relative;
+      height: 280px;
+      overflow: hidden;
+      background-color: var(--color-beige-light);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .wardrobe-card:hover .card-img {
+      transform: scale(1.06);
+    }
+
+    .card-badges {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    }
+
+    .badge-primary {
+      background-color: var(--color-primary-dark);
+      color: var(--color-white);
+    }
+
+    .badge-accent {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    .badge-success {
+      background-color: var(--color-success);
+      color: var(--color-white);
+    }
+
+    .card-actions-quick {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 2;
+      opacity: 0.9;
+      transition: var(--transition);
+    }
+
+    .wardrobe-card:hover .card-actions-quick {
+      opacity: 1;
+    }
+
+    .quick-act-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--color-beige-medium);
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.88rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quick-act-btn:hover {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border-color: var(--color-accent);
+      transform: scale(1.1);
+    }
+
+    .quick-act-btn.delete-btn:hover {
+      background: var(--color-danger);
+      border-color: var(--color-danger);
+      color: var(--color-white);
+    }
+
+    .card-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-meta-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .card-category {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+
+    .card-rating {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #e67e22;
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .card-specs {
+      font-size: 0.8rem;
+      color: var(--color-primary-light);
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-specs i {
+      color: var(--color-accent);
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+      margin-bottom: 16px;
+      flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-features-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .feature-chip {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      background-color: var(--color-beige-light);
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-beige-medium);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--color-beige-light);
+      padding-top: 16px;
+      margin-top: auto;
+    }
+
+    .price-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-original {
+      font-size: 0.78rem;
+      text-decoration: line-through;
+      color: var(--color-text-muted);
+    }
+
+    .price-current {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      line-height: 1;
+    }
+
+    .btn-card-cart {
+      background: var(--color-primary);
+      color: var(--color-white);
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .btn-card-cart:hover {
+      background: var(--color-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(193, 122, 74, 0.3);
+    }
+
+    .btn-card-cart.added {
+      background: var(--color-success);
+    }
+
+    /* Table View Container */
+    .table-view-container {
+      display: none;
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-beige-medium);
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .catalog-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    .catalog-table th {
+      background: var(--color-beige-light);
+      color: var(--color-primary-dark);
+      padding: 14px 18px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid var(--color-beige-medium);
+    }
+
+    .catalog-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--color-beige-light);
+      vertical-align: middle;
+      color: var(--color-text-main);
+    }
+
+    .catalog-table tr:hover {
+      background-color: rgba(250, 247, 242, 0.6);
+    }
+
+    .table-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      border: 1px solid var(--color-beige-medium);
+    }
+
+    .table-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-table-action {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-beige-light);
+      border: 1px solid var(--color-beige-medium);
+      color: var(--color-primary);
+      font-size: 0.82rem;
+    }
+
+    .btn-table-action:hover {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border-color: var(--color-accent);
+    }
+
+    .btn-table-action.delete:hover {
+      background: var(--color-danger);
+      color: var(--color-white);
+      border-color: var(--color-danger);
+    }
+
+    /* ==========================================================================
+       MODALS: ADD/EDIT WARDROBE & DELETE CONFIRMATION
+       ========================================================================= */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(43, 34, 27, 0.65);
+      backdrop-filter: blur(5px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-beige-dark);
+      width: 100%;
+      max-width: 680px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      animation: modalSlide 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes modalSlide {
+      from { opacity: 0; transform: translateY(30px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-header {
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--color-beige-medium);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      background: var(--color-white);
+      z-index: 10;
+    }
+
+    .modal-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-close-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--color-beige-light);
+      color: var(--color-text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--color-danger);
+      color: var(--color-white);
+    }
+
+    .modal-body {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    .form-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--color-beige-medium);
+      background-color: var(--color-cream);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--color-text-main);
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--color-accent);
+      background-color: var(--color-white);
+      box-shadow: 0 0 0 3px rgba(193, 122, 74, 0.15);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 85px;
+    }
+
+    .sample-presets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .preset-pill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      background-color: var(--color-beige-light);
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-beige-medium);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .preset-pill:hover {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      border-color: var(--color-accent);
+    }
+
+    .image-preview-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .preview-box {
+      width: 100px;
+      height: 75px;
+      border-radius: var(--radius-sm);
+      background: var(--color-beige-light);
+      border: 1.5px dashed var(--color-beige-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .preview-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .preview-box span {
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      text-align: center;
+      padding: 4px;
+    }
+
+    .modal-footer {
+      padding: 18px 28px;
+      border-top: 1px solid var(--color-beige-medium);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      background: var(--color-white);
+      position: sticky;
+      bottom: 0;
+    }
+
+    .btn-cancel {
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--color-beige-dark);
+      color: var(--color-primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .btn-cancel:hover {
+      background-color: var(--color-beige-light);
+    }
+
+    .btn-save {
+      background: var(--color-accent);
+      color: var(--color-white);
+      padding: 10px 24px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(193, 122, 74, 0.3);
+    }
+
+    .btn-save:hover {
+      background: var(--color-accent-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Delete Confirmation Modal Card */
+    .delete-modal-card {
+      max-width: 440px;
+      text-align: center;
+      padding: 32px 28px;
+    }
+
+    .delete-icon-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(192, 57, 43, 0.1);
+      color: var(--color-danger);
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px auto;
+    }
+
+    .delete-modal-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: var(--color-primary-dark);
+      margin-bottom: 8px;
+    }
+
+    .delete-modal-card p {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 24px;
+    }
+
+    .btn-confirm-delete {
+      background: var(--color-danger);
+      color: var(--color-white);
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .btn-confirm-delete:hover {
+      background: var(--color-danger-hover);
+    }
+
+    /* ==========================================================================
+       SLIDE-OUT CART DRAWER
+       ========================================================================== */
+    .cart-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2500;
+      display: none;
+    }
+
+    .cart-backdrop.active {
+      display: block;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 100%;
+      max-width: 420px;
+      height: 100%;
+      background: var(--color-white);
+      z-index: 2600;
+      box-shadow: -4px 0 24px rgba(0, 0, 0, 0.2);
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .cart-drawer-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-beige-medium);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cart-drawer-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--color-primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cart-items-box {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .cart-item-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--color-beige-light);
+    }
+
+    .cart-item-img {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      border: 1px solid var(--color-beige-medium);
+    }
+
+    .cart-item-info {
+      flex-grow: 1;
+    }
+
+    .cart-item-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+
+    .cart-item-price {
+      font-size: 0.85rem;
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .qty-btn {
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      background: var(--color-beige-light);
+      border: 1px solid var(--color-beige-medium);
+      font-weight: 700;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qty-btn:hover {
+      background: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    .cart-remove-btn {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+
+    .cart-remove-btn:hover {
+      color: var(--color-danger);
+    }
+
+    .cart-drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--color-beige-medium);
+      background: var(--color-cream);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cart-subtotal-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+    }
+
+    .btn-checkout {
+      background: var(--color-accent);
+      color: var(--color-white);
+      padding: 12px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(193, 122, 74, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-checkout:hover {
+      background: var(--color-accent-hover);
+    }
+
+    .btn-view-cart {
+      background: transparent;
+      border: 1.5px solid var(--color-primary);
+      color: var(--color-primary);
+      padding: 10px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-view-cart:hover {
+      background: var(--color-primary);
+      color: var(--color-white);
+    }
+
+    /* ==========================================================================
+       TOAST NOTIFICATION
+       ========================================================================== */
+    .toast-box {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--color-primary-dark);
+      color: var(--color-white);
+      padding: 14px 22px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 3000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .toast-box.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-box i {
+      color: #ffd8a8;
+      font-size: 1.1rem;
+    }
+
+    /* Craftsmanship Highlights */
+    .craft-section {
+      background: var(--color-white);
+      border-top: 1px solid var(--color-beige-medium);
+      border-bottom: 1px solid var(--color-beige-medium);
+      padding: 48px 0;
+    }
+
+    .craft-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .craft-card {
+      text-align: center;
+      padding: 16px;
+    }
+
+    .craft-icon {
+      font-size: 2rem;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+
+    .craft-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 6px;
+    }
+
+    .craft-desc {
+      font-size: 0.84rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--color-primary-dark);
+      color: var(--color-beige-light);
+      padding: 40px 0 28px 0;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    .footer a {
+      color: #ffd8a8;
+      text-decoration: underline;
+    }
+
+    .footer a:hover {
+      color: var(--color-white);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: flex; }
+      .metrics-bar { grid-template-columns: repeat(2, 1fr); }
+      .craft-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .hero-title { font-size: 2rem; }
+      .metrics-bar { grid-template-columns: 1fr; }
+      .controls-wrapper { flex-direction: column; align-items: stretch; }
+      .search-box-wrap { max-width: 100%; }
+      .filter-tools { justify-content: flex-start; }
+      .form-row { grid-template-columns: 1fr; }
+      .craft-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div>
+      <i class="fa-solid fa-truck-fast"></i> Free White-Glove In-Home Assembly on All Luxury Wardrobes & Armoires &bull; <span>Complimentary Room-of-Choice Placement</span>
+    </div>
+  </div>
+
+  <!-- Sticky Luxury Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Home Furniture Design Logo" class="logo-img" onerror="this.src='https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=120&q=80'" />
+        <div class="logo-text-wrap">
+          <span class="logo-text">Home Furniture Design</span>
+          <span class="logo-subtext">Designing Comfort &middot; Defining Style</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="products.html" class="nav-link"><i class="fa-solid fa-layer-group"></i> Shop</a></li>
+          <li><a href="sofa-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-couch"></i> Sofa Manager</a></li>
+          <li><a href="bed-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-bed"></i> Bed Manager</a></li>
+          <li><a href="chair-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-chair"></i> Chair Manager</a></li>
+          <li><a href="table-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-table"></i> Table Manager</a></li>
+          <li><a href="wardrobe-management.html" class="nav-link active" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-door-closed"></i> Wardrobe Manager</a></li>
+          <li><a href="decor-management.html" class="nav-link" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-lightbulb"></i> Decor Manager</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <button class="nav-icon-btn" id="openCartBtn" onclick="openCart()" title="Open Shopping Bag">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartCountBadge">0</span>
+        </button>
+
+        <div class="menu-toggle" id="mobileToggle" onclick="toggleMobileNav()" aria-label="Toggle Mobile Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-item"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="products.html" class="mobile-nav-item"><i class="fa-solid fa-layer-group"></i> Shop All Products</a></li>
+        <li><a href="sofa-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-couch"></i> Sofa Management Studio</a></li>
+        <li><a href="bed-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-bed"></i> Bed Management Studio</a></li>
+        <li><a href="chair-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-chair"></i> Chair Management Studio</a></li>
+        <li><a href="table-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-table"></i> Table Management Studio</a></li>
+        <li><a href="wardrobe-management.html" class="mobile-nav-item active" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-door-closed"></i> Wardrobe Management Studio</a></li>
+        <li><a href="decor-management.html" class="mobile-nav-item" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-lightbulb"></i> Decor Management Studio</a></li>
+        <li><a href="about.html" class="mobile-nav-item">About Us</a></li>
+        <li><a href="contact.html" class="mobile-nav-item">Contact Us</a></li>
+        <li><a href="cart.html" class="mobile-nav-item"><i class="fa-solid fa-bag-shopping"></i> Shopping Cart</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero / Header Section -->
+  <section class="atelier-hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-top-row">
+          <div class="hero-title-wrap">
+            <div class="hero-badge">
+              <i class="fa-solid fa-door-closed"></i> Handcrafted Wardrobe & Storage Atelier
+            </div>
+            <h1 class="hero-title">Wardrobes, Armoires & Modular Closets</h1>
+            <p class="hero-desc">
+              Explore and curate heirloom solid-wood wardrobes, whisper-glide sliding armoires, bespoke walk-in suites, and cane-paneled storage with live catalog management.
+            </p>
+          </div>
+
+          <div class="hero-cta-wrap">
+            <button class="btn-add-product" onclick="openAddModal()">
+              <i class="fa-solid fa-plus"></i>
+              <span>Add New Wardrobe</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Studio Metrics -->
+        <div class="metrics-bar">
+          <div class="metric-card">
+            <div class="metric-icon-wrap"><i class="fa-solid fa-door-closed"></i></div>
+            <div class="metric-info">
+              <div class="metric-val" id="totalCountDisplay">0</div>
+              <div class="metric-label">Catalog Wardrobes</div>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-wrap"><i class="fa-solid fa-boxes-stacked"></i></div>
+            <div class="metric-info">
+              <div class="metric-val" id="inStockDisplay">0</div>
+              <div class="metric-label">In Stock Ready</div>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-wrap"><i class="fa-solid fa-tag"></i></div>
+            <div class="metric-info">
+              <div class="metric-val" id="avgPriceDisplay">₹0</div>
+              <div class="metric-label">Average Price</div>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-wrap"><i class="fa-solid fa-tree"></i></div>
+            <div class="metric-info">
+              <div class="metric-val" id="timbersDisplay">5</div>
+              <div class="metric-label">Hardwood Timbers</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter & Controls Section -->
+  <section class="controls-section">
+    <div class="container">
+      <div class="controls-wrapper">
+        
+        <!-- Live Search -->
+        <div class="search-box-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search wardrobes by name, wood, configuration, or features..." oninput="filterWardrobeList()" />
+        </div>
+
+        <!-- Filter Selects -->
+        <div class="filter-tools">
+          <!-- Category / Style Filter -->
+          <select id="categoryFilter" class="select-dropdown" onchange="filterWardrobeList()">
+            <option value="all">All Door Styles</option>
+            <option value="2-Door Armoire">2-Door Armoires</option>
+            <option value="3-Door Sliding">3-Door Sliding</option>
+            <option value="Grand 4-Door">Grand 4-Door</option>
+            <option value="Walk-In Modular">Walk-In Modular</option>
+            <option value="Mirrored Armoire">Mirrored Armoires</option>
+            <option value="Linen Storage">Linen & Accent</option>
+          </select>
+
+          <!-- Hardwood / Material Filter -->
+          <select id="materialFilter" class="select-dropdown" onchange="filterWardrobeList()">
+            <option value="all">All Hardwood Timbers</option>
+            <option value="American Walnut">Solid American Walnut</option>
+            <option value="White Oak">White Oak & Cane</option>
+            <option value="Smoked Oak">Smoked Oak</option>
+            <option value="Birch Wood">Nordic Birch</option>
+            <option value="Plantation Teak">Plantation Teak</option>
+            <option value="White Ash">Solid White Ash</option>
+          </select>
+
+          <!-- Storage Layout Filter -->
+          <select id="layoutFilter" class="select-dropdown" onchange="filterWardrobeList()">
+            <option value="all">All Storage Layouts</option>
+            <option value="Hanging & Drawers">Dual Hanging & Drawers</option>
+            <option value="Linen Shelves">Linen Shelves & Trays</option>
+            <option value="LED Dressing Bay">LED Dressing Bay & Mirror</option>
+            <option value="Shoe Gallery & Safe">Shoe Gallery & Built-In Safe</option>
+          </select>
+
+          <!-- Sort Filter -->
+          <select id="sortFilter" class="select-dropdown" onchange="filterWardrobeList()">
+            <option value="featured">Sort by: Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="name-asc">Name: A to Z</option>
+          </select>
+
+          <!-- View Mode Toggles -->
+          <div class="view-toggles">
+            <button class="view-btn active" id="gridViewBtn" onclick="switchView('grid')" title="Grid Card View">
+              <i class="fa-solid fa-grip"></i>
+            </button>
+            <button class="view-btn" id="tableViewBtn" onclick="switchView('table')" title="Catalog Table View">
+              <i class="fa-solid fa-list"></i>
+            </button>
+          </div>
+
+          <!-- Reset Button -->
+          <button class="btn-reset-db" onclick="resetDefaultWardrobes()" title="Restore default showroom wardrobes">
+            <i class="fa-solid fa-rotate-right"></i> Reset
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Grid View -->
+      <div class="products-grid" id="wardrobesGrid">
+        <!-- Populated dynamically by JavaScript -->
+      </div>
+
+      <!-- Table View -->
+      <div class="table-view-container" id="wardrobesTableView">
+        <table class="catalog-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Wardrobe Name & Style</th>
+              <th>Hardwood & Material</th>
+              <th>Configuration</th>
+              <th>Status</th>
+              <th>Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="wardrobeTableBody">
+            <!-- Populated dynamically by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Craftsmanship Highlights -->
+  <section class="craft-section">
+    <div class="container">
+      <div class="craft-grid">
+        <div class="craft-card">
+          <div class="craft-icon"><i class="fa-solid fa-tree"></i></div>
+          <h4 class="craft-title">Sustainably Harvested</h4>
+          <p class="craft-desc">Crafted exclusively with 100% FSC-certified solid American walnuts, white oaks, and Indonesian plantation teaks.</p>
+        </div>
+        <div class="craft-card">
+          <div class="craft-icon"><i class="fa-solid fa-hammer"></i></div>
+          <h4 class="craft-title">Mortise & Tenon Joinery</h4>
+          <p class="craft-desc">Hand-fitted dovetail drawers and solid tenon corner blocks ensure structural integrity meant to endure generations.</p>
+        </div>
+        <div class="craft-card">
+          <div class="craft-icon"><i class="fa-solid fa-sliders"></i></div>
+          <h4 class="craft-title">German Soft-Close Systems</h4>
+          <p class="craft-desc">Integrated Blum whisper-close dampening hinges and concealed ball-bearing drawer slides for silent luxury.</p>
+        </div>
+        <div class="craft-card">
+          <div class="craft-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h4 class="craft-title">10-Year Master Guarantee</h4>
+          <p class="craft-desc">Every wardrobe is backed by white-glove assembly, white-room delivery, and our 10-year timber structure warranty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 <strong>Home Furniture Design</strong>. Handcrafted with passion in warm earthy tones.</p>
+      <p style="margin-top: 10px; font-size: 0.85rem;">
+        <a href="index.html">&larr; Return to Store Home</a> &bull; 
+        <a href="products.html">All Catalog Items</a> &bull; 
+        <a href="sofa-management.html">Sofa Manager</a> &bull; 
+        <a href="bed-management.html">Bed Manager</a> &bull; 
+        <a href="chair-management.html">Chair Manager</a> &bull; 
+        <a href="table-management.html">Table Manager</a> &bull; 
+        <span>Wardrobe Management Studio</span> &bull; 
+        <a href="decor-management.html">Decor Manager</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       CREATE / EDIT WARDROBE MODAL
+       ========================================================================== -->
+  <div class="modal-backdrop" id="wardrobeModal">
+    <div class="modal-card">
+      
+      <div class="modal-header">
+        <h3 id="modalTitle">
+          <i class="fa-solid fa-door-closed" style="color: var(--color-accent);"></i>
+          <span>Add New Wardrobe</span>
+        </h3>
+        <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+      </div>
+
+      <form id="wardrobeForm" onsubmit="handleSaveWardrobe(event)">
+        <div class="modal-body">
+          <input type="hidden" id="wardrobeIdInput" />
+
+          <div class="form-row">
+            
+            <!-- Wardrobe Name -->
+            <div class="form-group full-width">
+              <label class="form-label" for="wardrobeNameInput">Wardrobe Name & Model *</label>
+              <input type="text" id="wardrobeNameInput" class="form-input" placeholder="e.g., Kensington Grand 4-Door Walnut Wardrobe" required />
+            </div>
+
+            <!-- Door Style Category -->
+            <div class="form-group">
+              <label class="form-label" for="wardrobeCategoryInput">Door Style / Category *</label>
+              <select id="wardrobeCategoryInput" class="form-select" required>
+                <option value="2-Door Armoire">2-Door Armoire</option>
+                <option value="3-Door Sliding">3-Door Sliding</option>
+                <option value="Grand 4-Door">Grand 4-Door</option>
+                <option value="Walk-In Modular">Walk-In Modular</option>
+                <option value="Mirrored Armoire">Mirrored Armoire</option>
+                <option value="Linen Storage">Linen Storage</option>
+              </select>
+            </div>
+
+            <!-- Storage Layout -->
+            <div class="form-group">
+              <label class="form-label" for="wardrobeLayoutInput">Interior Storage Layout *</label>
+              <select id="wardrobeLayoutInput" class="form-select" required>
+                <option value="Hanging & Drawers">Dual Hanging & Drawers</option>
+                <option value="Linen Shelves">Linen Shelves & Trays</option>
+                <option value="LED Dressing Bay">LED Dressing Bay & Mirror</option>
+                <option value="Shoe Gallery & Safe">Shoe Gallery & Built-In Safe</option>
+              </select>
+            </div>
+
+            <!-- Primary Hardwood / Material -->
+            <div class="form-group">
+              <label class="form-label" for="wardrobeMaterialInput">Hardwood & Material *</label>
+              <input type="text" id="wardrobeMaterialInput" class="form-input" placeholder="e.g., Solid American Walnut" required />
+            </div>
+
+            <!-- Dimensions -->
+            <div class="form-group">
+              <label class="form-label" for="wardrobeDimensionsInput">Dimensions & Hardware *</label>
+              <input type="text" id="wardrobeDimensionsInput" class="form-input" placeholder="e.g., 220cm H x 200cm W x 65cm D • Brass Pulls" required />
+            </div>
+
+            <!-- Price & Original Price -->
+            <div class="form-group">
+              <label class="form-label" for="wardrobePriceInput">Offer Price (₹ INR) *</label>
+              <input type="number" id="wardrobePriceInput" class="form-input" min="1" step="1" placeholder="1450" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="wardrobeOrigPriceInput">Original / Retail Price (₹ INR)</label>
+              <input type="number" id="wardrobeOrigPriceInput" class="form-input" min="1" step="1" placeholder="1690" />
+            </div>
+
+            <!-- Inventory Status -->
+            <div class="form-group">
+              <label class="form-label" for="wardrobeStatusInput">Stock / Availability *</label>
+              <select id="wardrobeStatusInput" class="form-select">
+                <option value="In Stock">In Stock (Immediate Dispatch)</option>
+                <option value="Limited Batch">Limited Batch (Only 2 Left)</option>
+                <option value="Made to Order">Made to Order (2-3 Weeks)</option>
+              </select>
+            </div>
+
+            <!-- Image URL with Preset Pickers -->
+            <div class="form-group full-width">
+              <label class="form-label" for="wardrobeImageInput">Image URL (High-Res Photography) *</label>
+              <input type="url" id="wardrobeImageInput" class="form-input" placeholder="https://images.unsplash.com/..." required oninput="updateImagePreview()" />
+
+              <!-- Quick Presets -->
+              <div style="font-size: 0.78rem; color: var(--color-text-muted); margin-top: 6px;">Quick Presets:</div>
+              <div class="sample-presets">
+                <span class="preset-pill" onclick="setPresetImage('https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80')">Solid Walnut Wardrobe</span>
+                <span class="preset-pill" onclick="setPresetImage('https://images.unsplash.com/photo-1558997519-83ea9252def8?auto=format&fit=crop&w=800&q=80')">White Oak & Cane</span>
+                <span class="preset-pill" onclick="setPresetImage('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80')">Modern Sliding Glass</span>
+                <span class="preset-pill" onclick="setPresetImage('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80')">Japandi Birch Closet</span>
+                <span class="preset-pill" onclick="setPresetImage('https://images.unsplash.com/photo-1558997517-74291845bb08?auto=format&fit=crop&w=800&q=80')">Modular Walk-In</span>
+                <span class="preset-pill" onclick="setPresetImage('https://images.unsplash.com/photo-1540518614846-7ede433c4570?auto=format&fit=crop&w=800&q=80')">Teak & Mirror</span>
+              </div>
+
+              <!-- Live Preview -->
+              <div class="image-preview-wrapper">
+                <div class="preview-box">
+                  <img id="formImagePreview" src="" alt="Preview" style="display: none;" onerror="this.style.display='none'; document.getElementById('previewFallbackText').style.display='block';" />
+                  <span id="previewFallbackText">Live Preview</span>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--color-text-muted);">
+                  Images auto-crop cleanly into the card header with warm interior lighting.
+                </div>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group full-width">
+              <label class="form-label" for="wardrobeDescInput">Product Description *</label>
+              <textarea id="wardrobeDescInput" class="form-textarea" placeholder="Detail the continuous hardwood grain, soft-close hardware, interior cedar lining, and storage partitions..." required></textarea>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+          <button type="submit" class="btn-save">
+            <i class="fa-solid fa-floppy-disk"></i>
+            <span id="saveBtnText">Save Wardrobe Product</span>
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Delete Modal -->
+  <div class="modal-backdrop" id="deleteModal">
+    <div class="modal-card delete-modal-card">
+      <div class="delete-icon-circle">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <h3>Remove This Wardrobe?</h3>
+      <p>Are you sure you want to delete <strong id="deleteWardrobeName">this wardrobe</strong>? This action cannot be undone.</p>
+      <div style="display: flex; justify-content: center; gap: 12px;">
+        <button type="button" class="btn-cancel" onclick="closeDeleteModal()">No, Keep It</button>
+        <button type="button" class="btn-confirm-delete" onclick="confirmDeleteWardrobe()">Yes, Delete Product</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Slide-Out Drawer -->
+  <div class="cart-backdrop" id="cartBackdrop" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3>
+        <i class="fa-solid fa-bag-shopping" style="color: var(--color-accent);"></i>
+        <span>Your Shopping Bag</span>
+      </h3>
+      <button class="modal-close-btn" onclick="closeCart()">&times;</button>
+    </div>
+
+    <div class="cart-items-box" id="cartItemsList">
+      <!-- Rendered by JavaScript -->
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>Estimated Subtotal:</span>
+        <span id="cartSubtotalAmount">₹0.00</span>
+      </div>
+      <button class="btn-checkout" onclick="proceedToCheckout()">
+        <i class="fa-solid fa-lock"></i>
+        <span>Proceed to Checkout</span>
+      </button>
+      <a href="cart.html" class="btn-view-cart">
+        <i class="fa-solid fa-arrow-right"></i>
+        <span>View Full Cart Page</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Toast Notification -->
+  <div class="toast-box" id="toastNotification">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMessage">Action completed successfully.</span>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT: CRUD OPERATIONS, STORAGE & CART INTEGRATION
+       ========================================================================== -->
+  <script>
+    // --------------------------------------------------------------------------
+    // 1. DEFAULT INITIAL DATA (8 Handcrafted Wardrobes & Armoires)
+    // --------------------------------------------------------------------------
+    const INITIAL_WARDROBES = [
+      {
+        id: "wardrobe-1",
+        name: "Kensington Grand 4-Door Walnut Wardrobe",
+        category: "Grand 4-Door",
+        layout: "Hanging & Drawers",
+        price: 1450,
+        originalPrice: 1690,
+        material: "Solid American Walnut",
+        dimensions: "220cm H x 200cm W x 65cm D • Solid Brass Hardware",
+        status: "In Stock",
+        img: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80",
+        description: "Masterfully built from continuous-grain American walnut. Features dual solid hanging bays, soft-close dovetailed cedar drawers, and solid satin-brass pillar pull handles."
+      },
+      {
+        id: "wardrobe-2",
+        name: "Stockholm Cane & White Oak Armoire",
+        category: "2-Door Armoire",
+        layout: "Linen Shelves",
+        price: 890,
+        originalPrice: 1050,
+        material: "White Oak & Woven Cane",
+        dimensions: "195cm H x 110cm W x 58cm D • French Cane Weave",
+        status: "In Stock",
+        img: "https://images.unsplash.com/photo-1558997519-83ea9252def8?auto=format&fit=crop&w=800&q=80",
+        description: "Natural woven rattan cane door inserts set into sustainably harvested Scandinavian white oak. Provides breathable storage for delicate linens, sweaters, and cashmere."
+      },
+      {
+        id: "wardrobe-3",
+        name: "Verona Smoked Oak 3-Door Sliding Wardrobe",
+        category: "3-Door Sliding",
+        layout: "LED Dressing Bay",
+        price: 1680,
+        originalPrice: 1890,
+        material: "Smoked Oak & Bronze Glass",
+        dimensions: "225cm H x 240cm W x 68cm D • German Soft-Glide Rails",
+        status: "In Stock",
+        img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80",
+        description: "Ultra-quiet whisper sliding tracks with smoked tempered glass panels and perimeter LED backlight illumination. Equipped with full-length interior mirrors and velvet jewelry drawers."
+      },
+      {
+        id: "wardrobe-4",
+        name: "Kyoto Minimalist Natural Birch Wardrobe",
+        category: "2-Door Armoire",
+        layout: "Hanging & Drawers",
+        price: 760,
+        originalPrice: 860,
+        material: "Nordic Birch Wood",
+        dimensions: "190cm H x 100cm W x 55cm D • Finger-Joint Joinery",
+        status: "In Stock",
+        img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80",
+        description: "Minimalist Japandi silhouette crafted with organic birch timbers and recessed finger pulls. Offers a versatile upper hat shelf and dual deep pull-out bottom organizer crates."
+      },
+      {
+        id: "wardrobe-5",
+        name: "Manhattan Modular Walk-In Closet Suite",
+        category: "Walk-In Modular",
+        layout: "Shoe Gallery & Safe",
+        price: 2850,
+        originalPrice: 3200,
+        material: "Dark Ash & Matte Black Steel",
+        dimensions: "240cm H x 320cm W x 60cm D • Custom Modular Grid",
+        status: "Made to Order",
+        img: "https://images.unsplash.com/photo-1558997517-74291845bb08?auto=format&fit=crop&w=800&q=80",
+        description: "Architectural open-concept wardrobe suite with slatted display shelves, angled shoe galleries, biometric jewelry safe, and automated warm-light sensor bars."
+      },
+      {
+        id: "wardrobe-6",
+        name: "Château Antiqued Teak & Mirror Armoire",
+        category: "Mirrored Armoire",
+        layout: "Hanging & Drawers",
+        price: 1280,
+        originalPrice: 1420,
+        material: "Plantation Teak",
+        dimensions: "210cm H x 125cm W x 62cm D • Beveled Glass Mirror",
+        status: "Limited Batch",
+        img: "https://images.unsplash.com/photo-1540518614846-7ede433c4570?auto=format&fit=crop&w=800&q=80",
+        description: "Heirloom Indonesian teak armoire with full-length beveled arch mirror, hand-carved crown molding, and antique patinated brass skeleton keys with working mortise lock."
+      },
+      {
+        id: "wardrobe-7",
+        name: "Milano Fluted Charcoal Double Wardrobe",
+        category: "2-Door Armoire",
+        layout: "LED Dressing Bay",
+        price: 1120,
+        originalPrice: 1280,
+        material: "Charcoal Stained Oak",
+        dimensions: "205cm H x 120cm W x 60cm D • Fluted Tambour Doors",
+        status: "In Stock",
+        img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
+        description: "Contemporary Italian design featuring rhythmically fluted solid oak doors, integrated interior LED downlighting, and heavy brushed copper cylindrical hardware."
+      },
+      {
+        id: "wardrobe-8",
+        name: "Aura White Ash & Linen Low Armoire",
+        category: "Linen Storage",
+        layout: "Linen Shelves",
+        price: 820,
+        originalPrice: 940,
+        material: "Solid White Ash",
+        dimensions: "175cm H x 105cm W x 52cm D • Natural Flax Linen Inset",
+        status: "In Stock",
+        img: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=800&q=80",
+        description: "Petite low armoire tailored for apartments and guest chambers. Belgian flax linen door panels bring soft acoustic texture and timeless understated luxury."
+      }
+    ];
+
+    // --------------------------------------------------------------------------
+    // 2. STATE MANAGEMENT & LOCAL STORAGE
+    // --------------------------------------------------------------------------
+    const STORAGE_KEY = 'home_furniture_design_wardrobes_v1';
+    const CART_STORAGE_KEY = 'hfd_user_cart';
+    let wardrobes = [];
+    let cart = [];
+    let currentView = 'grid'; // 'grid' or 'table'
+    let pendingDeleteId = null;
+
+    function loadWardrobes() {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+          wardrobes = JSON.parse(stored);
+        } else {
+          wardrobes = [...INITIAL_WARDROBES];
+          saveWardrobesToStorage();
+        }
+      } catch (e) {
+        console.error('Error loading wardrobes:', e);
+        wardrobes = [...INITIAL_WARDROBES];
+      }
+      loadCart();
+      render();
+    }
+
+    function saveWardrobesToStorage() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(wardrobes));
+      } catch (e) {
+        console.error('Error saving wardrobes:', e);
+      }
+      updateMetrics();
+    }
+
+    function loadCart() {
+      try {
+        const storedCart = localStorage.getItem(CART_STORAGE_KEY);
+        if (storedCart) {
+          cart = JSON.parse(storedCart);
+        } else {
+          cart = [];
+        }
+      } catch (e) {
+        cart = [];
+      }
+      updateCartUI();
+    }
+
+    function saveCartToStorage() {
+      try {
+        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+      } catch (e) {
+        console.error('Error saving cart:', e);
+      }
+      updateCartUI();
+    }
+
+    function resetDefaultWardrobes() {
+      if (confirm('Reset your wardrobe catalog back to the initial 8 showroom designs?')) {
+        wardrobes = [...INITIAL_WARDROBES];
+        saveWardrobesToStorage();
+        render();
+        showToast('Wardrobe catalog restored to showroom defaults.');
+      }
+    }
+
+    // --------------------------------------------------------------------------
+    // 3. RENDER FUNCTION (Grid & Table Views)
+    // --------------------------------------------------------------------------
+    function render(filteredList = null) {
+      const items = filteredList !== null ? filteredList : getFilteredList();
+      const gridContainer = document.getElementById('wardrobesGrid');
+      const tableBody = document.getElementById('wardrobeTableBody');
+
+      // Empty State
+      if (items.length === 0) {
+        const emptyMsg = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; background: var(--color-white); border-radius: var(--radius-md); border: 1.5px dashed var(--color-beige-dark);">
+            <i class="fa-solid fa-door-closed" style="font-size: 3rem; color: var(--color-beige-dark); margin-bottom: 14px;"></i>
+            <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-primary);">No Matching Wardrobes Found</h3>
+            <p style="color: var(--color-text-muted); margin-top: 6px; font-size: 0.95rem;">Try adjusting your filters, searching for a different wood finish, or add a new wardrobe design.</p>
+            <button class="btn-add-product" style="margin-top: 20px;" onclick="openAddModal()">
+              <i class="fa-solid fa-plus"></i> Add Custom Wardrobe
+            </button>
+          </div>
+        `;
+        gridContainer.innerHTML = emptyMsg;
+        tableBody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 40px;">No matching wardrobe designs found.</td></tr>';
+        updateMetrics();
+        return;
+      }
+
+      // Render Grid View Cards
+      let gridHTML = '';
+      items.forEach(item => {
+        const discountBadge = item.originalPrice && item.originalPrice > item.price ? 
+          `<span class="badge badge-accent">Save ₹${item.originalPrice - item.price}</span>` : '';
+        
+        const statusBadge = item.status === 'In Stock' ? 
+          '<span class="badge badge-success">In Stock</span>' : 
+          `<span class="badge badge-primary">${item.status}</span>`;
+
+        gridHTML += `
+          <article class="wardrobe-card" id="card-${item.id}">
+            <div class="card-thumb-wrap">
+              <img src="${item.img}" alt="${item.name}" class="card-img" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80'" />
+              <div class="card-badges">
+                ${statusBadge}
+                ${discountBadge}
+              </div>
+              <div class="card-actions-quick">
+                <button class="quick-act-btn" onclick="openEditModal('${item.id}')" title="Edit Wardrobe"><i class="fa-solid fa-pen"></i></button>
+                <button class="quick-act-btn delete-btn" onclick="openDeleteModal('${item.id}')" title="Delete Wardrobe"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="card-meta-top">
+                <span class="card-category">${item.category}</span>
+                <div class="card-rating">
+                  <i class="fa-solid fa-star"></i>
+                  <span>4.9</span>
+                </div>
+              </div>
+
+              <h3 class="card-title">${item.name}</h3>
+
+              <div class="card-specs">
+                <i class="fa-solid fa-ruler-combined"></i>
+                <span>${item.dimensions}</span>
+              </div>
+
+              <p class="card-desc">${item.description}</p>
+
+              <div class="card-features-chips">
+                <span class="feature-chip"><i class="fa-solid fa-tree"></i> ${item.material}</span>
+                <span class="feature-chip"><i class="fa-solid fa-boxes-stacked"></i> ${item.layout}</span>
+              </div>
+
+              <div class="card-footer">
+                <div class="price-wrap">
+                  ${item.originalPrice ? `<span class="price-original">₹${Number(item.originalPrice).toLocaleString()}</span>` : ''}
+                  <span class="price-current">₹${Number(item.price).toLocaleString()}</span>
+                </div>
+
+                <button class="btn-card-cart" id="btn-cart-${item.id}" onclick="addToCart('${item.id}')">
+                  <i class="fa-solid fa-bag-shopping"></i>
+                  <span>Add to Cart</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      });
+      gridContainer.innerHTML = gridHTML;
+
+      // Render Table View Rows
+      let tableHTML = '';
+      items.forEach(item => {
+        tableHTML += `
+          <tr>
+            <td>
+              <img src="${item.img}" alt="${item.name}" class="table-thumb" onerror="this.src='https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80'" />
+            </td>
+            <td>
+              <strong style="color: var(--color-primary-dark); font-size: 0.95rem;">${item.name}</strong><br/>
+              <span style="font-size: 0.78rem; color: var(--color-text-muted);">${item.category} &bull; ${item.dimensions}</span>
+            </td>
+            <td>
+              <span style="font-weight: 600; color: var(--color-primary);">${item.material}</span>
+            </td>
+            <td>
+              <span class="feature-chip" style="font-size: 0.75rem;">${item.layout}</span>
+            </td>
+            <td>
+              <span class="badge ${item.status === 'In Stock' ? 'badge-success' : 'badge-primary'}">${item.status}</span>
+            </td>
+            <td>
+              <strong style="font-family: var(--font-heading); font-size: 1.1rem; color: var(--color-primary-dark);">₹${Number(item.price).toLocaleString()}</strong>
+            </td>
+            <td>
+              <div class="table-actions">
+                <button class="btn-table-action" onclick="addToCart('${item.id}')" title="Add to Cart"><i class="fa-solid fa-cart-plus"></i></button>
+                <button class="btn-table-action" onclick="openEditModal('${item.id}')" title="Edit"><i class="fa-solid fa-pen"></i></button>
+                <button class="btn-table-action delete" onclick="openDeleteModal('${item.id}')" title="Delete"><i class="fa-solid fa-trash-can"></i></button>
+              </div>
+            </td>
+          </tr>
+        `;
+      });
+      tableBody.innerHTML = tableHTML;
+
+      updateMetrics();
+    }
+
+    // --------------------------------------------------------------------------
+    // 4. FILTERING & SEARCHING
+    // --------------------------------------------------------------------------
+    function getFilteredList() {
+      const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+      const categoryVal = document.getElementById('categoryFilter').value;
+      const materialVal = document.getElementById('materialFilter').value;
+      const layoutVal = document.getElementById('layoutFilter').value;
+      const sortVal = document.getElementById('sortFilter').value;
+
+      let result = wardrobes.filter(item => {
+        // Search filter
+        const matchesSearch = !searchTerm || 
+          item.name.toLowerCase().includes(searchTerm) ||
+          item.material.toLowerCase().includes(searchTerm) ||
+          item.category.toLowerCase().includes(searchTerm) ||
+          item.layout.toLowerCase().includes(searchTerm) ||
+          item.description.toLowerCase().includes(searchTerm);
+
+        // Category filter
+        const matchesCategory = categoryVal === 'all' || item.category === categoryVal;
+
+        // Material filter
+        const matchesMaterial = materialVal === 'all' || item.material.toLowerCase().includes(materialVal.toLowerCase());
+
+        // Layout filter
+        const matchesLayout = layoutVal === 'all' || item.layout === layoutVal;
+
+        return matchesSearch && matchesCategory && matchesMaterial && matchesLayout;
+      });
+
+      // Sorting
+      if (sortVal === 'price-low') {
+        result.sort((a, b) => a.price - b.price);
+      } else if (sortVal === 'price-high') {
+        result.sort((a, b) => b.price - a.price);
+      } else if (sortVal === 'name-asc') {
+        result.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      return result;
+    }
+
+    function filterWardrobeList() {
+      render();
+    }
+
+    // --------------------------------------------------------------------------
+    // 5. METRICS UPDATE
+    // --------------------------------------------------------------------------
+    function updateMetrics() {
+      const totalCount = wardrobes.length;
+      document.getElementById('totalCountDisplay').textContent = totalCount;
+
+      const inStock = wardrobes.filter(w => w.status === 'In Stock').length;
+      document.getElementById('inStockDisplay').textContent = inStock;
+
+      if (totalCount > 0) {
+        const sumPrice = wardrobes.reduce((acc, curr) => acc + Number(curr.price), 0);
+        const avg = Math.round(sumPrice / totalCount);
+        document.getElementById('avgPriceDisplay').textContent = '₹' + avg.toLocaleString();
+      } else {
+        document.getElementById('avgPriceDisplay').textContent = '₹0';
+      }
+
+      const timberTypes = new Set(wardrobes.map(w => w.material));
+      document.getElementById('timbersDisplay').textContent = timberTypes.size;
+    }
+
+    // --------------------------------------------------------------------------
+    // 6. VIEW SWITCHING (Grid vs Table)
+    // --------------------------------------------------------------------------
+    function switchView(mode) {
+      currentView = mode;
+      const gridView = document.getElementById('wardrobesGrid');
+      const tableView = document.getElementById('wardrobesTableView');
+      const gridBtn = document.getElementById('gridViewBtn');
+      const tableBtn = document.getElementById('tableViewBtn');
+
+      if (mode === 'grid') {
+        gridView.style.display = 'grid';
+        tableView.style.display = 'none';
+        gridBtn.classList.add('active');
+        tableBtn.classList.remove('active');
+      } else {
+        gridView.style.display = 'none';
+        tableView.style.display = 'block';
+        gridBtn.classList.remove('active');
+        tableBtn.classList.add('active');
+      }
+    }
+
+    // --------------------------------------------------------------------------
+    // 7. MODALS: ADD, EDIT, DELETE
+    // --------------------------------------------------------------------------
+    const wardrobeModal = document.getElementById('wardrobeModal');
+    const deleteModal = document.getElementById('deleteModal');
+
+    function openAddModal() {
+      document.getElementById('modalTitle').innerHTML = '<i class="fa-solid fa-door-closed" style="color: var(--color-accent);"></i> <span>Add New Wardrobe</span>';
+      document.getElementById('saveBtnText').textContent = 'Save Wardrobe Product';
+      document.getElementById('wardrobeIdInput').value = '';
+      document.getElementById('wardrobeForm').reset();
+      document.getElementById('wardrobeStatusInput').value = 'In Stock';
+      setPresetImage('https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80');
+      wardrobeModal.classList.add('open');
+    }
+
+    function openEditModal(id) {
+      const item = wardrobes.find(w => w.id === id);
+      if (!item) return;
+
+      document.getElementById('modalTitle').innerHTML = '<i class="fa-solid fa-pen" style="color: var(--color-accent);"></i> <span>Edit Wardrobe Details</span>';
+      document.getElementById('saveBtnText').textContent = 'Update Wardrobe';
+      document.getElementById('wardrobeIdInput').value = item.id;
+      document.getElementById('wardrobeNameInput').value = item.name;
+      document.getElementById('wardrobeCategoryInput').value = item.category;
+      document.getElementById('wardrobeLayoutInput').value = item.layout;
+      document.getElementById('wardrobeMaterialInput').value = item.material;
+      document.getElementById('wardrobeDimensionsInput').value = item.dimensions;
+      document.getElementById('wardrobePriceInput').value = item.price;
+      document.getElementById('wardrobeOrigPriceInput').value = item.originalPrice || '';
+      document.getElementById('wardrobeStatusInput').value = item.status;
+      document.getElementById('wardrobeImageInput').value = item.img;
+      document.getElementById('wardrobeDescInput').value = item.description;
+
+      updateImagePreview();
+      wardrobeModal.classList.add('open');
+    }
+
+    function closeModal() {
+      wardrobeModal.classList.remove('open');
+    }
+
+    function setPresetImage(url) {
+      document.getElementById('wardrobeImageInput').value = url;
+      updateImagePreview();
+    }
+
+    function updateImagePreview() {
+      const url = document.getElementById('wardrobeImageInput').value.trim();
+      const img = document.getElementById('formImagePreview');
+      const fallback = document.getElementById('previewFallbackText');
+
+      if (url) {
+        img.src = url;
+        img.style.display = 'block';
+        fallback.style.display = 'none';
+      } else {
+        img.style.display = 'none';
+        fallback.style.display = 'block';
+      }
+    }
+
+    function handleSaveWardrobe(event) {
+      event.preventDefault();
+
+      const id = document.getElementById('wardrobeIdInput').value;
+      const name = document.getElementById('wardrobeNameInput').value.trim();
+      const category = document.getElementById('wardrobeCategoryInput').value;
+      const layout = document.getElementById('wardrobeLayoutInput').value;
+      const material = document.getElementById('wardrobeMaterialInput').value.trim();
+      const dimensions = document.getElementById('wardrobeDimensionsInput').value.trim();
+      const price = Number(document.getElementById('wardrobePriceInput').value);
+      const originalPrice = document.getElementById('wardrobeOrigPriceInput').value ? Number(document.getElementById('wardrobeOrigPriceInput').value) : null;
+      const status = document.getElementById('wardrobeStatusInput').value;
+      const img = document.getElementById('wardrobeImageInput').value.trim();
+      const description = document.getElementById('wardrobeDescInput').value.trim();
+
+      if (id) {
+        // Update Existing
+        const index = wardrobes.findIndex(w => w.id === id);
+        if (index !== -1) {
+          wardrobes[index] = { ...wardrobes[index], name, category, layout, material, dimensions, price, originalPrice, status, img, description };
+          showToast(`Updated "${name}" successfully.`);
+        }
+      } else {
+        // Add New
+        const newId = 'wardrobe-' + Date.now();
+        const newWardrobe = { id: newId, name, category, layout, material, dimensions, price, originalPrice, status, img, description };
+        wardrobes.unshift(newWardrobe);
+        showToast(`Added new wardrobe "${name}" to showroom.`);
+      }
+
+      saveWardrobesToStorage();
+      render();
+      closeModal();
+    }
+
+    function openDeleteModal(id) {
+      const item = wardrobes.find(w => w.id === id);
+      if (!item) return;
+
+      pendingDeleteId = id;
+      document.getElementById('deleteWardrobeName').textContent = item.name;
+      deleteModal.classList.add('open');
+    }
+
+    function closeDeleteModal() {
+      pendingDeleteId = null;
+      deleteModal.classList.remove('open');
+    }
+
+    function confirmDeleteWardrobe() {
+      if (!pendingDeleteId) return;
+
+      const item = wardrobes.find(w => w.id === pendingDeleteId);
+      const name = item ? item.name : 'Wardrobe';
+      wardrobes = wardrobes.filter(w => w.id !== pendingDeleteId);
+      saveWardrobesToStorage();
+      render();
+      closeDeleteModal();
+      showToast(`"${name}" removed from catalog.`);
+    }
+
+    // --------------------------------------------------------------------------
+    // 8. SHOPPING CART INTEGRATION (LocalStorage: 'hfd_user_cart')
+    // --------------------------------------------------------------------------
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartBackdrop = document.getElementById('cartBackdrop');
+    const cartItemsList = document.getElementById('cartItemsList');
+    const cartSubtotalAmount = document.getElementById('cartSubtotalAmount');
+    const cartCountBadge = document.getElementById('cartCountBadge');
+
+    function openCart() {
+      updateCartUI();
+      cartDrawer.classList.add('open');
+      cartBackdrop.classList.add('active');
+    }
+
+    function closeCart() {
+      cartDrawer.classList.remove('open');
+      cartBackdrop.classList.remove('active');
+    }
+
+    function addToCart(wardrobeId) {
+      const item = wardrobes.find(w => w.id === wardrobeId);
+      if (!item) return;
+
+      const existing = cart.find(i => i.id == item.id);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          image: item.img,
+          img: item.img,
+          quantity: 1
+        });
+      }
+
+      // Button feedback
+      const btn = document.getElementById(`btn-cart-${item.id}`);
+      if (btn) {
+        const originalHTML = btn.innerHTML;
+        btn.classList.add('added');
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Added &check;</span>';
+        setTimeout(() => {
+          btn.classList.remove('added');
+          btn.innerHTML = originalHTML;
+        }, 1200);
+      }
+
+      // Badge bounce
+      cartCountBadge.classList.add('bump');
+      setTimeout(() => cartCountBadge.classList.remove('bump'), 300);
+
+      saveCartToStorage();
+      showToast(`Added "${item.name}" to cart!`);
+    }
+
+    function changeCartQty(id, delta) {
+      const item = cart.find(i => i.id == id);
+      if (!item) return;
+
+      item.quantity += delta;
+      if (item.quantity <= 0) {
+        cart = cart.filter(i => i.id != id);
+      }
+      saveCartToStorage();
+    }
+
+    function removeCartItem(id) {
+      cart = cart.filter(i => i.id != id);
+      saveCartToStorage();
+      showToast('Item removed from cart.');
+    }
+
+    function updateCartUI() {
+      const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCountBadge.textContent = totalCount;
+
+      if (cart.length === 0) {
+        cartItemsList.innerHTML = `
+          <div style="text-align: center; margin: auto 0; color: var(--color-text-muted);">
+            <i class="fa-solid fa-door-closed" style="font-size: 2.6rem; color: var(--color-beige-dark); margin-bottom: 12px;"></i>
+            <p style="font-weight: 600; color: var(--color-primary-dark);">Your shopping bag is empty.</p>
+            <p style="font-size: 0.8rem; margin-top: 4px;">Add a luxury wardrobe or storage suite to get started!</p>
+          </div>
+        `;
+        cartSubtotalAmount.textContent = '₹0.00';
+      } else {
+        let itemsHTML = '';
+        let subtotal = 0;
+
+        cart.forEach(item => {
+          const itemTotal = item.price * item.quantity;
+          subtotal += itemTotal;
+          const displayImg = item.image || item.img || 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80';
+
+          itemsHTML += `
+            <div class="cart-item-row">
+              <img src="${displayImg}" alt="${item.name}" class="cart-item-img" onerror="this.src='https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80'" />
+              <div class="cart-item-info">
+                <h4 class="cart-item-title">${item.name}</h4>
+                <div class="cart-item-price">₹${Number(item.price).toLocaleString()}</div>
+                <div class="qty-controls">
+                  <button class="qty-btn" onclick="changeCartQty('${item.id}', -1)">-</button>
+                  <span style="font-size: 0.88rem; font-weight: 700; min-width: 20px; text-align: center;">${item.quantity}</span>
+                  <button class="qty-btn" onclick="changeCartQty('${item.id}', 1)">+</button>
+                </div>
+              </div>
+              <button class="cart-remove-btn" onclick="removeCartItem('${item.id}')" title="Remove">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+          `;
+        });
+
+        cartItemsList.innerHTML = itemsHTML;
+        cartSubtotalAmount.textContent = `₹${subtotal.toLocaleString()}`;
+      }
+    }
+
+    function proceedToCheckout() {
+      if (cart.length === 0) {
+        showToast('Your cart is empty.');
+        return;
+      }
+      showToast('Redirecting to checkout preview...');
+      setTimeout(() => {
+        window.location.href = 'cart.html';
+      }, 500);
+    }
+
+    // --------------------------------------------------------------------------
+    // 9. TOAST & MOBILE MENU UTILITIES
+    // --------------------------------------------------------------------------
+    let toastTimeout;
+    function showToast(message) {
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMessage');
+      toastMsg.textContent = message;
+
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    function toggleMobileNav() {
+      document.getElementById('mobileDrawer').classList.toggle('open');
+    }
+
+    // Keyboard Accessibility (Escape to close modals)
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+        closeDeleteModal();
+        closeCart();
+      }
+    });
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      loadWardrobes();
+    });
+  </script>
+</body>
+</html>

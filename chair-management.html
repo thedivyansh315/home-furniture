@@ -1,0 +1,2612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chairs & Accent Seating Studio — Home Furniture Design</title>
+  <meta name="description" content="Explore and manage luxury handcrafted chairs, dining seating, accent recliners, and lounge armchairs with real-time editing and shopping cart integration." />
+
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ==========================================================================
+       CSS VARIABLES & THEME (Warm Earthy Luxury Palette)
+       ========================================================================== */
+    :root {
+      --color-primary: #5a3e2b;
+      --color-primary-dark: #3a2618;
+      --color-primary-light: #7b5941;
+      --color-accent: #c17a4a;
+      --color-accent-hover: #ab6537;
+      --color-cream: #faf7f2;
+      --color-beige-light: #f5efe6;
+      --color-beige-medium: #ebdccb;
+      --color-beige-dark: #dac3ab;
+      --color-text-main: #2b221b;
+      --color-text-muted: #6e6155;
+      --color-white: #ffffff;
+      --color-success: #3f7b4c;
+      --color-danger: #c0392b;
+      --color-danger-hover: #a93226;
+      --color-warning: #e67e22;
+
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-pill: 50px;
+
+      --shadow-sm: 0 2px 8px rgba(90, 62, 43, 0.05);
+      --shadow-md: 0 8px 24px rgba(90, 62, 43, 0.08);
+      --shadow-lg: 0 16px 40px rgba(90, 62, 43, 0.14);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Global Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-cream);
+      color: var(--color-text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: var(--transition);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       TOP ANNOUNCEMENT BAR
+       ========================================================================== */
+    .top-bar {
+      background-color: var(--color-primary-dark);
+      color: var(--color-beige-light);
+      font-size: 0.82rem;
+      padding: 8px 16px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .top-bar span {
+      color: #ffd8a8;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       STICKY NAVBAR
+       ========================================================================== */
+    .navbar {
+      background-color: rgba(250, 247, 242, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--color-beige-medium);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: contain;
+      background-color: var(--color-white);
+      box-shadow: 0 2px 8px rgba(90, 62, 43, 0.12);
+      border: 1.5px solid var(--color-beige-medium);
+      transition: var(--transition);
+    }
+
+    .logo:hover .logo-img {
+      transform: scale(1.05);
+      border-color: var(--color-accent);
+    }
+
+    .logo-text-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--color-primary-dark);
+      line-height: 1.1;
+    }
+
+    .logo-subtext {
+      font-size: 0.62rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--color-accent);
+    }
+
+    /* Desktop Navigation Links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-text-main);
+      padding: 6px 4px;
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--color-accent);
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-accent);
+      border-radius: 2px;
+    }
+
+    /* Nav Actions */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--color-primary-dark);
+      background-color: rgba(90, 62, 43, 0.06);
+      transition: var(--transition);
+    }
+
+    .nav-link-btn:hover {
+      background-color: rgba(90, 62, 43, 0.12);
+      color: var(--color-accent);
+    }
+
+    .btn-add-chair-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(193, 122, 74, 0.35);
+      transition: var(--transition);
+    }
+
+    .btn-add-chair-top:hover {
+      background-color: var(--color-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(193, 122, 74, 0.45);
+    }
+
+    .cart-btn-wrap {
+      position: relative;
+    }
+
+    .cart-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(90, 62, 43, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      color: var(--color-primary-dark);
+      transition: var(--transition);
+    }
+
+    .cart-btn:hover {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--color-white);
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .cart-badge.bump {
+      transform: scale(1.35);
+    }
+
+    /* ==========================================================================
+       PAGE HEADER / HERO BANNER
+       ========================================================================== */
+    .page-header {
+      background: linear-gradient(135deg, #462c1b 0%, #29180e 100%);
+      color: var(--color-white);
+      padding: 50px 0 42px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: -70px;
+      right: -70px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(193, 122, 74, 0.28) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: 8%;
+      width: 240px;
+      height: 240px;
+      background: radial-gradient(circle, rgba(235, 220, 203, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .header-title-wrap h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      margin-bottom: 8px;
+      line-height: 1.15;
+    }
+
+    .header-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #ffd8a8;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .header-desc {
+      font-size: 1rem;
+      color: #e3d5c6;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    /* Dashboard Metric Cards */
+    .metric-cards {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .metric-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      min-width: 130px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .metric-card:hover {
+      background: rgba(255, 255, 255, 0.14);
+      transform: translateY(-2px);
+    }
+
+    .metric-number {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffd8a8;
+      line-height: 1.1;
+    }
+
+    .metric-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #d1c5b8;
+      margin-top: 4px;
+    }
+
+    /* ==========================================================================
+       CONTROLS BAR (Search, Filters, View Toggles)
+       ========================================================================== */
+    .controls-section {
+      background: var(--color-white);
+      border-bottom: 1px solid var(--color-beige-medium);
+      padding: 20px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      position: sticky;
+      top: 76px;
+      z-index: 900;
+    }
+
+    .controls-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .search-box-wrap {
+      position: relative;
+      flex-grow: 1;
+      max-width: 380px;
+      min-width: 240px;
+    }
+
+    .search-box-wrap i {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-accent);
+      font-size: 0.95rem;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 11px 16px 11px 42px;
+      border: 1.5px solid var(--color-beige-medium);
+      border-radius: var(--radius-pill);
+      font-size: 0.9rem;
+      outline: none;
+      background: var(--color-cream);
+      color: var(--color-text-main);
+      transition: var(--transition);
+    }
+
+    .search-input:focus {
+      border-color: var(--color-accent);
+      background: var(--color-white);
+      box-shadow: 0 0 0 3px rgba(193, 122, 74, 0.15);
+    }
+
+    .filter-tools {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .select-dropdown {
+      padding: 10px 16px;
+      border: 1.5px solid var(--color-beige-medium);
+      border-radius: var(--radius-pill);
+      background-color: var(--color-white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text-main);
+      outline: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .select-dropdown:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(193, 122, 74, 0.15);
+    }
+
+    .view-toggles {
+      display: flex;
+      border: 1.5px solid var(--color-beige-medium);
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      background: var(--color-cream);
+    }
+
+    .view-btn {
+      padding: 9px 15px;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .view-btn.active {
+      background: var(--color-primary-dark);
+      color: var(--color-white);
+    }
+
+    .btn-reset-db {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px dashed var(--color-beige-dark);
+    }
+
+    .btn-reset-db:hover {
+      color: var(--color-danger);
+      border-color: var(--color-danger);
+      background-color: rgba(192, 57, 43, 0.05);
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT: CHAIR PRODUCT GRID VIEW
+       ========================================================================== */
+    .main-content {
+      padding: 40px 0 80px 0;
+      flex-grow: 1;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    /* Chair Card */
+    .chair-card {
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-beige-medium);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: var(--transition);
+      animation: fadeInCard 0.4s ease forwards;
+    }
+
+    @keyframes fadeInCard {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .chair-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--color-beige-dark);
+    }
+
+    .card-thumb-wrap {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+      background-color: var(--color-beige-light);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .chair-card:hover .card-img {
+      transform: scale(1.06);
+    }
+
+    .card-badges {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: fit-content;
+    }
+
+    .badge-in-stock {
+      background-color: #27ae60;
+      color: #fff;
+    }
+
+    .badge-made-to-order {
+      background-color: var(--color-accent);
+      color: #fff;
+    }
+
+    .badge-limited {
+      background-color: #8e44ad;
+      color: #fff;
+    }
+
+    .badge-material {
+      background-color: rgba(35, 25, 19, 0.88);
+      color: #ffd8a8;
+      backdrop-filter: blur(4px);
+    }
+
+    .badge-type {
+      background-color: rgba(255, 255, 255, 0.95);
+      color: var(--color-primary-dark);
+      border: 1px solid var(--color-beige-medium);
+    }
+
+    .discount-ribbon {
+      position: absolute;
+      bottom: 12px;
+      left: 14px;
+      background: var(--color-primary-dark);
+      color: #ffd8a8;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    /* Action Buttons overlaid on image */
+    .card-quick-actions {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      z-index: 2;
+    }
+
+    .icon-action-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-main);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+
+    .icon-action-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .btn-edit:hover {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    .btn-delete:hover {
+      background-color: var(--color-danger);
+      color: var(--color-white);
+    }
+
+    /* Card Details */
+    .card-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-category-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .card-type {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+
+    .card-id-pill {
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      background: var(--color-beige-light);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .card-specs {
+      font-size: 0.78rem;
+      color: var(--color-primary-light);
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-specs i {
+      color: var(--color-accent);
+      font-size: 0.75rem;
+    }
+
+    .card-description {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+      margin-bottom: 18px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+
+    /* Card Footer & Add to Cart */
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-beige-medium);
+      gap: 12px;
+    }
+
+    .price-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-main {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      line-height: 1.1;
+    }
+
+    .price-original {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+    }
+
+    .btn-add-cart {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--color-primary-dark);
+      color: var(--color-white);
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-add-cart:hover {
+      background-color: var(--color-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(193, 122, 74, 0.3);
+    }
+
+    .btn-add-cart.added {
+      background-color: var(--color-success);
+    }
+
+    /* ==========================================================================
+       TABLE VIEW MODE
+       ========================================================================== */
+    .table-view-container {
+      display: none;
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-beige-medium);
+    }
+
+    .chair-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      min-width: 820px;
+    }
+
+    .chair-table th {
+      background-color: var(--color-beige-light);
+      color: var(--color-primary-dark);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      padding: 16px 20px;
+      font-size: 0.92rem;
+      border-bottom: 2px solid var(--color-beige-medium);
+    }
+
+    .chair-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--color-beige-light);
+      font-size: 0.9rem;
+      vertical-align: middle;
+    }
+
+    .chair-table tr:hover {
+      background-color: #fbf9f6;
+    }
+
+    .table-thumb {
+      width: 68px;
+      height: 54px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      background: var(--color-beige-light);
+    }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 70px 20px;
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      border: 2px dashed var(--color-beige-dark);
+    }
+
+    .empty-state i {
+      font-size: 3.5rem;
+      color: var(--color-accent);
+      margin-bottom: 16px;
+    }
+
+    .empty-state h3 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: var(--color-primary-dark);
+      margin-bottom: 8px;
+    }
+
+    .empty-state p {
+      color: var(--color-text-muted);
+      margin-bottom: 22px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ==========================================================================
+       MODAL DIALOG (Add / Edit Chair)
+       ========================================================================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(35, 23, 14, 0.65);
+      backdrop-filter: blur(6px);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      transition: var(--transition);
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      max-width: 700px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.92);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+    }
+
+    .modal-backdrop.open .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      padding: 24px 28px;
+      background: var(--color-cream);
+      border-bottom: 1px solid var(--color-beige-medium);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    .modal-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: var(--color-primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-close-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(90, 62, 43, 0.08);
+      font-size: 1.2rem;
+      color: var(--color-text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-close-btn:hover {
+      background-color: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    .modal-body {
+      padding: 28px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+    }
+
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--color-beige-medium);
+      border-radius: var(--radius-sm);
+      font-size: 0.92rem;
+      font-family: inherit;
+      color: var(--color-text-main);
+      background-color: var(--color-white);
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(193, 122, 74, 0.15);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 85px;
+    }
+
+    /* Image Preview & Quick preset images */
+    .image-preview-wrapper {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .preview-box {
+      width: 110px;
+      height: 85px;
+      border-radius: var(--radius-sm);
+      background-color: var(--color-beige-light);
+      border: 1.5px dashed var(--color-beige-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .preview-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .preview-box span {
+      font-size: 0.72rem;
+      color: var(--color-text-muted);
+      text-align: center;
+      padding: 4px;
+    }
+
+    .sample-presets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .sample-preset-btn {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      background: var(--color-beige-light);
+      border: 1px solid var(--color-beige-medium);
+      border-radius: var(--radius-pill);
+      color: var(--color-primary);
+    }
+
+    .sample-preset-btn:hover {
+      background: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    .modal-footer {
+      padding: 18px 28px;
+      background: var(--color-cream);
+      border-top: 1px solid var(--color-beige-medium);
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      position: sticky;
+      bottom: 0;
+      z-index: 5;
+    }
+
+    .btn-cancel {
+      padding: 11px 24px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--color-beige-dark);
+      color: var(--color-text-muted);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .btn-cancel:hover {
+      background-color: var(--color-beige-light);
+      color: var(--color-text-main);
+    }
+
+    .btn-save {
+      padding: 11px 28px;
+      border-radius: var(--radius-pill);
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 14px rgba(193, 122, 74, 0.35);
+    }
+
+    .btn-save:hover {
+      background-color: var(--color-accent-hover);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       DELETE CONFIRMATION MODAL
+       ========================================================================== */
+    .delete-modal-card {
+      max-width: 440px;
+      text-align: center;
+      padding: 34px 28px;
+    }
+
+    .delete-icon-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(192, 57, 43, 0.12);
+      color: var(--color-danger);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 18px auto;
+    }
+
+    .delete-modal-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      color: var(--color-primary-dark);
+    }
+
+    .delete-modal-card p {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 24px;
+    }
+
+    .btn-confirm-delete {
+      padding: 11px 26px;
+      border-radius: var(--radius-pill);
+      background-color: var(--color-danger);
+      color: var(--color-white);
+      font-weight: 600;
+    }
+
+    .btn-confirm-delete:hover {
+      background-color: var(--color-danger-hover);
+    }
+
+    /* ==========================================================================
+       CART SLIDE-OUT DRAWER
+       ========================================================================== */
+    .cart-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(35, 23, 14, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 2500;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .cart-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -450px;
+      width: 100%;
+      max-width: 420px;
+      height: 100%;
+      background: var(--color-white);
+      box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+      z-index: 2600;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .cart-drawer-header {
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--color-beige-medium);
+    }
+
+    .cart-drawer-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      color: var(--color-primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cart-items-box {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .cart-item-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--color-beige-light);
+    }
+
+    .cart-item-img {
+      width: 68px;
+      height: 68px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      background: var(--color-beige-light);
+    }
+
+    .cart-item-info {
+      flex-grow: 1;
+    }
+
+    .cart-item-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+      margin-bottom: 2px;
+    }
+
+    .cart-item-price {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      margin-bottom: 6px;
+    }
+
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qty-btn {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background: var(--color-beige-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .qty-btn:hover {
+      background: var(--color-beige-medium);
+    }
+
+    .cart-remove-btn {
+      color: var(--color-danger);
+      font-size: 0.95rem;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .cart-drawer-footer {
+      padding: 20px 24px;
+      background: var(--color-cream);
+      border-top: 1px solid var(--color-beige-medium);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cart-subtotal-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-primary-dark);
+    }
+
+    .btn-checkout {
+      width: 100%;
+      padding: 14px;
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      border-radius: var(--radius-pill);
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 14px rgba(193, 122, 74, 0.35);
+    }
+
+    .btn-checkout:hover {
+      background-color: var(--color-accent-hover);
+    }
+
+    .btn-view-cart {
+      width: 100%;
+      padding: 11px;
+      background-color: transparent;
+      color: var(--color-primary-dark);
+      border: 1.5px solid var(--color-beige-dark);
+      border-radius: var(--radius-pill);
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .btn-view-cart:hover {
+      background-color: var(--color-beige-light);
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+    }
+
+    /* ==========================================================================
+       TOAST NOTIFICATION
+       ========================================================================== */
+    .toast-box {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: var(--color-primary-dark);
+      color: var(--color-white);
+      padding: 14px 22px;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+      z-index: 3000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .toast-box.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-box i {
+      color: #92d69e;
+      font-size: 1.15rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: #231913;
+      color: #b0a395;
+      padding: 34px 0;
+      border-top: 1px solid #38281e;
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    .footer a {
+      color: #ffd8a8;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .metric-cards {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .metric-card {
+        flex: 1;
+        min-width: 80px;
+        padding: 10px 12px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .controls-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-box-wrap {
+        max-width: 100%;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cart-drawer {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <p>🪑 Chair & Accent Seating Atelier — <span>Bespoke Hand-Finished Seating</span> crafted from solid hardwoods, saddle leather, and woven cane</p>
+  </div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Home Furniture Design Logo" class="logo-img" onerror="this.src='https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=120&q=80'" />
+        <div class="logo-text-wrap">
+          <span class="logo-text">Home Furniture Design</span>
+          <span class="logo-subtext">Designing Comfort · Defining Style</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="products.html" class="nav-link">Shop</a></li>
+        <li><a href="sofa-management.html" class="nav-link" style="color: var(--color-primary-light);"><i class="fa-solid fa-couch"></i> Sofa Manager</a></li>
+        <li><a href="bed-management.html" class="nav-link" style="color: var(--color-primary-light);"><i class="fa-solid fa-bed"></i> Bed Manager</a></li>
+        <li><a href="chair-management.html" class="nav-link active" style="color: var(--color-accent); font-weight: 700;"><i class="fa-solid fa-chair"></i> Chair Manager</a></li>
+        <li><a href="table-management.html" class="nav-link" style="color: var(--color-primary-light);"><i class="fa-solid fa-table"></i> Table Manager</a></li>
+        <li><a href="wardrobe-management.html" class="nav-link" style="color: var(--color-primary-light);"><i class="fa-solid fa-door-closed"></i> Wardrobe Manager</a></li>
+        <li><a href="decor-management.html" class="nav-link" style="color: var(--color-primary-light);"><i class="fa-solid fa-lightbulb"></i> Decor Manager</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Navigation Actions -->
+      <div class="nav-actions">
+        <a href="index.html" class="nav-link-btn" title="Back to Home Store">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Store Home</span>
+        </a>
+
+        <button class="btn-add-chair-top" onclick="openCreateModal()">
+          <i class="fa-solid fa-plus"></i>
+          <span>Add New Chair</span>
+        </button>
+
+        <div class="cart-btn-wrap">
+          <button class="cart-btn" onclick="openCart()" aria-label="Open Shopping Bag">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge" id="cartCountBadge">0</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Page Header Banner & Analytics Summary -->
+  <section class="page-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-title-wrap">
+          <span class="header-tag"><i class="fa-solid fa-chair"></i> Seating Atelier & Studio Manager</span>
+          <h1>Artisan Chairs & Accent Seating</h1>
+          <p class="header-desc">
+            Explore and manage sculpted leather recliners, Danish woven paper-cord wishbones, hand-braided rattan dining armchairs, and plush velvet occasional seating.
+          </p>
+        </div>
+
+        <div class="metric-cards">
+          <div class="metric-card">
+            <div class="metric-number" id="totalChairCount">0</div>
+            <div class="metric-label">Total Chairs</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number" id="inStockCount">0</div>
+            <div class="metric-label">In Stock</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number" id="avgPriceDisplay">₹0</div>
+            <div class="metric-label">Avg. Price</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number" id="materialsCount">6</div>
+            <div class="metric-label">Materials & Woods</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter & Search Controls Bar -->
+  <section class="controls-section">
+    <div class="container">
+      <div class="controls-wrapper">
+        
+        <!-- Search Input -->
+        <div class="search-box-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="chairSearchInput" class="search-input" placeholder="Search chairs by name, material, wood, or style..." oninput="filterChairList()" />
+        </div>
+
+        <!-- Filter Tools -->
+        <div class="filter-tools">
+          
+          <!-- Category / Style Filter -->
+          <select id="categoryFilter" class="select-dropdown" onchange="filterChairList()">
+            <option value="all">All Seating Styles</option>
+            <option value="Lounge">Lounge & Accent</option>
+            <option value="Dining">Dining Chairs</option>
+            <option value="Armchair">Club & Armchairs</option>
+            <option value="Desk">Desk & Study Chairs</option>
+          </select>
+
+          <!-- Material / Upholstery Filter -->
+          <select id="materialFilter" class="select-dropdown" onchange="filterChairList()">
+            <option value="all">All Materials & Fabrics</option>
+            <option value="Leather">Saddle Leather</option>
+            <option value="Paper Cord">Natural Paper Cord</option>
+            <option value="Cane">Natural Cane & Webbing</option>
+            <option value="Bouclé">Tactile Bouclé</option>
+            <option value="Velvet">Performance Velvet</option>
+            <option value="Linen">Solid Oak & Linen</option>
+            <option value="Walnut">American Walnut</option>
+          </select>
+
+          <!-- Status Filter -->
+          <select id="statusFilter" class="select-dropdown" onchange="filterChairList()">
+            <option value="all">All Statuses</option>
+            <option value="In Stock">In Stock (Ships in 48h)</option>
+            <option value="Made to Order">Made to Order</option>
+            <option value="Limited Batch">Limited Batch</option>
+          </select>
+
+          <!-- Sort Filter -->
+          <select id="sortFilter" class="select-dropdown" onchange="filterChairList()">
+            <option value="featured">Sort by: Featured</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="name-asc">Name: A to Z</option>
+          </select>
+
+          <!-- Grid / Table View Toggles -->
+          <div class="view-toggles">
+            <button class="view-btn active" id="gridViewBtn" onclick="switchView('grid')" title="Grid View">
+              <i class="fa-solid fa-grip"></i>
+            </button>
+            <button class="view-btn" id="tableViewBtn" onclick="switchView('table')" title="Table View">
+              <i class="fa-solid fa-list"></i>
+            </button>
+          </div>
+
+          <!-- Reset to Defaults Button -->
+          <button class="btn-reset-db" onclick="resetDefaultChairs()" title="Restore initial luxury chair showcase">
+            <i class="fa-solid fa-rotate-right"></i> Reset Samples
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content: Products Grid & Table -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Grid View -->
+      <div class="products-grid" id="chairsGrid">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+
+      <!-- Table View -->
+      <div class="table-view-container" id="chairsTableView">
+        <table class="chair-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name & Style</th>
+              <th>Material / Upholstery</th>
+              <th>Room Setting</th>
+              <th>Status</th>
+              <th>Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="chairTableBody">
+            <!-- Rendered dynamically by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       CREATE / EDIT CHAIR MODAL
+       ========================================================================== -->
+  <div class="modal-backdrop" id="chairModal">
+    <div class="modal-card">
+      
+      <div class="modal-header">
+        <h3 id="modalTitle">
+          <i class="fa-solid fa-chair" style="color: var(--color-accent);"></i>
+          <span>Add New Chair</span>
+        </h3>
+        <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+      </div>
+
+      <form id="chairForm" onsubmit="handleSaveChair(event)">
+        <div class="modal-body">
+          <input type="hidden" id="chairIdInput" />
+
+          <div class="form-grid">
+            
+            <!-- Chair Model Name -->
+            <div class="form-group full-width">
+              <label class="form-label" for="chairNameInput">Chair Model Name *</label>
+              <input type="text" id="chairNameInput" class="form-input" placeholder="e.g. Nordic Saddle Leather Lounge Chair" required />
+            </div>
+
+            <!-- Category / Style -->
+            <div class="form-group">
+              <label class="form-label" for="chairCategoryInput">Seating Style / Category *</label>
+              <select id="chairCategoryInput" class="form-select">
+                <option value="Lounge">Lounge & Accent Chair</option>
+                <option value="Dining">Dining Room Chair</option>
+                <option value="Armchair">Club & Tub Armchair</option>
+                <option value="Desk">Desk & Study Armchair</option>
+              </select>
+            </div>
+
+            <!-- Room Setting -->
+            <div class="form-group">
+              <label class="form-label" for="chairRoomInput">Ideal Room Setting *</label>
+              <select id="chairRoomInput" class="form-select">
+                <option value="Living Room Accent">Living Room Accent</option>
+                <option value="Dining Room">Dining Room</option>
+                <option value="Dining & Study">Dining & Study</option>
+                <option value="Reading Nook">Reading Nook</option>
+                <option value="Home Office & Study">Home Office & Study</option>
+              </select>
+            </div>
+
+            <!-- Price -->
+            <div class="form-group">
+              <label class="form-label" for="chairPriceInput">Sale Price (₹ INR) *</label>
+              <input type="number" id="chairPriceInput" class="form-input" placeholder="e.g. 349" min="1" step="any" required />
+            </div>
+
+            <!-- Original / Compare-at Price -->
+            <div class="form-group">
+              <label class="form-label" for="chairOriginalPriceInput">Original Price (₹ INR)</label>
+              <input type="number" id="chairOriginalPriceInput" class="form-input" placeholder="e.g. 420 (optional)" min="0" step="any" />
+            </div>
+
+            <!-- Material / Upholstery -->
+            <div class="form-group">
+              <label class="form-label" for="chairMaterialInput">Hardwood & Material</label>
+              <select id="chairMaterialInput" class="form-select">
+                <option value="Full-Grain Leather & Ash">Full-Grain Leather & Solid Ash</option>
+                <option value="Natural Cane & Ash Wood">Natural Cane Webbing & Ash Wood</option>
+                <option value="Natural Paper Cord & Ash">Natural Paper Cord & Solid Ash</option>
+                <option value="Solid White Oak & Linen">Solid White Oak & Pure Linen</option>
+                <option value="Forest Velvet & Brass">Emerald Performance Velvet & Brass</option>
+                <option value="Cream Bouclé Fabric">Ultra-Soft Cream Bouclé</option>
+                <option value="Teak Wood & Leather">Indonesian Teak & Cognac Leather</option>
+                <option value="American Walnut & Wool">American Walnut Hardwood & Wool</option>
+              </select>
+            </div>
+
+            <!-- Availability Status -->
+            <div class="form-group">
+              <label class="form-label" for="chairStatusInput">Availability Status</label>
+              <select id="chairStatusInput" class="form-select">
+                <option value="In Stock">In Stock (Ships in 48h)</option>
+                <option value="Made to Order">Made to Order (2-3 Weeks)</option>
+                <option value="Limited Batch">Limited Batch</option>
+              </select>
+            </div>
+
+            <!-- Dimensions -->
+            <div class="form-group full-width">
+              <label class="form-label" for="chairDimensionsInput">Dimensions & Wood Finish</label>
+              <input type="text" id="chairDimensionsInput" class="form-input" placeholder="e.g. 82cm W x 86cm D x 78cm H • Caramel Brown / Natural Wax" />
+            </div>
+
+            <!-- Image URL & Presets -->
+            <div class="form-group full-width">
+              <label class="form-label" for="chairImageInput">Image URL or Pick a Curated Preset *</label>
+              <input type="url" id="chairImageInput" class="form-input" placeholder="https://images.unsplash.com/..." required oninput="updateImagePreview(this.value)" />
+              
+              <!-- Quick image presets -->
+              <div class="sample-presets">
+                <span style="font-size: 0.75rem; color: var(--color-text-muted); align-self: center;">Presets:</span>
+                <button type="button" class="sample-preset-btn" onclick="applyPresetImage('https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80')">Leather Lounge</button>
+                <button type="button" class="sample-preset-btn" onclick="applyPresetImage('https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=800&q=80')">Cane Armchair</button>
+                <button type="button" class="sample-preset-btn" onclick="applyPresetImage('https://images.unsplash.com/photo-1580481077197-2510c496d66e?auto=format&fit=crop&w=800&q=80')">Wishbone Chair</button>
+                <button type="button" class="sample-preset-btn" onclick="applyPresetImage('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80')">Japandi Oak</button>
+                <button type="button" class="sample-preset-btn" onclick="applyPresetImage('https://images.unsplash.com/photo-1580481077195-c9a96f1311df?auto=format&fit=crop&w=800&q=80')">Velvet Occasional</button>
+                <button type="button" class="sample-preset-btn" onclick="applyPresetImage('https://images.unsplash.com/photo-1519947486513-ce62b99f2162?auto=format&fit=crop&w=800&q=80')">Bouclé Swivel</button>
+              </div>
+
+              <!-- Live Image Preview -->
+              <div class="image-preview-wrapper">
+                <div class="preview-box">
+                  <img id="formImagePreview" src="" alt="Preview" style="display: none;" onerror="this.style.display='none'; document.getElementById('previewFallbackText').style.display='block';" />
+                  <span id="previewFallbackText">Live Preview</span>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--color-text-muted);">
+                  Images auto-crop cleanly into the card header with warm lighting aesthetics.
+                </div>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="form-group full-width">
+              <label class="form-label" for="chairDescriptionInput">Product Description *</label>
+              <textarea id="chairDescriptionInput" class="form-textarea" placeholder="Describe the lumbar ergonomics, joinery, upholstery tactile texture, and styling suggestions..." required></textarea>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+          <button type="submit" class="btn-save">
+            <i class="fa-solid fa-floppy-disk"></i>
+            <span id="saveBtnText">Save Chair Product</span>
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       DELETE CONFIRMATION MODAL
+       ========================================================================== -->
+  <div class="modal-backdrop" id="deleteModal">
+    <div class="modal-card delete-modal-card">
+      <div class="delete-icon-circle">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <h3>Remove This Chair?</h3>
+      <p>Are you sure you want to delete <strong id="deleteChairName">this chair</strong>? This action cannot be undone.</p>
+      <div style="display: flex; justify-content: center; gap: 12px;">
+        <button type="button" class="btn-cancel" onclick="closeDeleteModal()">No, Keep It</button>
+        <button type="button" class="btn-confirm-delete" onclick="confirmDeleteChair()">Yes, Delete Product</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SLIDE-OUT CART DRAWER
+       ========================================================================== -->
+  <div class="cart-backdrop" id="cartBackdrop" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3>
+        <i class="fa-solid fa-bag-shopping" style="color: var(--color-accent);"></i>
+        <span>Your Shopping Bag</span>
+      </h3>
+      <button class="modal-close-btn" onclick="closeCart()">&times;</button>
+    </div>
+
+    <div class="cart-items-box" id="cartItemsList">
+      <!-- Cart items populated by JS -->
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>Estimated Subtotal:</span>
+        <span id="cartSubtotalAmount">₹0.00</span>
+      </div>
+      <button class="btn-checkout" onclick="proceedToCheckout()">
+        <i class="fa-solid fa-lock"></i>
+        <span>Proceed to Checkout</span>
+      </button>
+      <a href="cart.html" class="btn-view-cart">
+        <i class="fa-solid fa-arrow-right"></i>
+        <span>View Full Cart Page</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       TOAST NOTIFICATION
+       ========================================================================== -->
+  <div class="toast-box" id="toastNotification">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMessage">Action completed successfully.</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 <strong>Home Furniture Design</strong>. Handcrafted with passion in warm earthy tones.</p>
+      <p style="margin-top: 8px; font-size: 0.85rem;">
+        <a href="index.html">← Return to Store Home</a> &bull; 
+        <a href="products.html">All Catalog</a> &bull; 
+        <a href="sofa-management.html">Sofa Manager</a> &bull; 
+        <a href="bed-management.html">Bed Manager</a> &bull; 
+        <a href="table-management.html">Table Manager</a> &bull; 
+        Chair Management Studio &bull; 
+        <a href="wardrobe-management.html">Wardrobe Manager</a> &bull; 
+        <a href="decor-management.html">Decor Manager</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       JAVASCRIPT: CRUD OPERATIONS, STORAGE & CART INTEGRATION
+       ========================================================================== -->
+  <script>
+    // --------------------------------------------------------------------------
+    // 1. DEFAULT INITIAL DATA (Luxury Designer Chairs with Unsplash Photography)
+    // --------------------------------------------------------------------------
+    const INITIAL_CHAIRS = [
+      {
+        id: "chair-1",
+        name: "Nordic Saddle Leather Lounge Chair",
+        category: "Lounge",
+        room: "Living Room Accent",
+        price: 349,
+        originalPrice: 420,
+        material: "Full-Grain Leather & Ash",
+        dimensions: "82cm W x 86cm D x 78cm H • Caramel Brown Wax",
+        status: "In Stock",
+        img: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80",
+        description: "Sculpted from warm top-grain saddle leather and sustainably harvested solid ash wood. Features an ergonomic reclining posture, hand-burnished edges, and brass accent fittings that mature gracefully with age."
+      },
+      {
+        id: "chair-2",
+        name: "Copenhagen Cane & Ash Wood Armchair",
+        category: "Dining",
+        room: "Dining & Study",
+        price: 245,
+        originalPrice: 290,
+        material: "Natural Cane & Ash Wood",
+        dimensions: "58cm W x 54cm D x 81cm H • Honey Ash Finish",
+        status: "In Stock",
+        img: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=800&q=80",
+        description: "A harmonious blend of natural Indonesian cane webbing and hand-bent ash wood curvature. Breathable, lightweight, and exceptionally supportive for study desks or dining spaces."
+      },
+      {
+        id: "chair-3",
+        name: "Classic Wishbone Ash Dining Chair",
+        category: "Dining",
+        room: "Dining Room",
+        price: 195,
+        originalPrice: 230,
+        material: "Natural Paper Cord & Ash",
+        dimensions: "55cm W x 51cm D x 75cm H • Light Ash Finish",
+        status: "In Stock",
+        img: "https://images.unsplash.com/photo-1580481077197-2510c496d66e?auto=format&fit=crop&w=800&q=80",
+        description: "A timeless mid-century icon featuring the famous curved Y-crest rail and over 120 meters of hand-twisted natural paper cord tightly woven onto a steam-bent solid beechwood and ash frame."
+      },
+      {
+        id: "chair-4",
+        name: "Kyoto Japandi Low-Profile Armchair",
+        category: "Lounge",
+        room: "Reading Nook",
+        price: 410,
+        originalPrice: 480,
+        material: "Solid White Oak & Linen",
+        dimensions: "76cm W x 80cm D x 72cm H • Smoked Oak Finish",
+        status: "Made to Order",
+        img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80",
+        description: "Low-slung minimalist seating with paddle-shaped armrests, precision mortise-and-tenon joints, and high-density foam cushioning upholstered in raw textured Belgian linen."
+      },
+      {
+        id: "chair-5",
+        name: "Verona Emerald Velvet Occasional Chair",
+        category: "Armchair",
+        room: "Living Room Accent",
+        price: 380,
+        originalPrice: 450,
+        material: "Forest Velvet & Brass",
+        dimensions: "74cm W x 72cm D x 78cm H • Emerald Velvet",
+        status: "Limited Batch",
+        img: "https://images.unsplash.com/photo-1580481077195-c9a96f1311df?auto=format&fit=crop&w=800&q=80",
+        description: "A glamorous curved barrel armchair draped in jewel-toned performance velvet with hand-stitched detailing and brushed brass tapered metal legs for cozy sitting."
+      },
+      {
+        id: "chair-6",
+        name: "Stockholm Cream Bouclé Swivel Chair",
+        category: "Lounge",
+        room: "Living Room Accent",
+        price: 520,
+        originalPrice: 590,
+        material: "Cream Bouclé Fabric",
+        dimensions: "84cm W x 80cm D x 75cm H • Oatmeal Cream",
+        status: "In Stock",
+        img: "https://images.unsplash.com/photo-1519947486513-ce62b99f2162?auto=format&fit=crop&w=800&q=80",
+        description: "Architectural flowing lines wrapped in tactile bouclé fleece with a hidden heavy-duty 360-degree swivel plate for conversations in living and bedroom corners."
+      },
+      {
+        id: "chair-7",
+        name: "Tulum Plantation Teak & Leather Sling Chair",
+        category: "Lounge",
+        room: "Reading Nook",
+        price: 360,
+        originalPrice: 420,
+        material: "Teak Wood & Leather",
+        dimensions: "68cm W x 74cm D x 76cm H • Natural Teak Wax",
+        status: "In Stock",
+        img: "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?auto=format&fit=crop&w=800&q=80",
+        description: "Inspired by classic safari exploration chairs, this collapsible teak design features full-grain cognac bridle leather with reinforced copper rivets."
+      },
+      {
+        id: "chair-8",
+        name: "Geneva Mid-Century Walnut Desk Armchair",
+        category: "Desk",
+        room: "Home Office & Study",
+        price: 280,
+        originalPrice: 330,
+        material: "American Walnut & Wool",
+        dimensions: "60cm W x 58cm D x 82cm H • Matte Satin Poly",
+        status: "In Stock",
+        img: "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=800&q=80",
+        description: "A work-from-home staple engineered with a gently curved walnut lumbar backrest and stain-resistant charcoal wool seat cushion for all-day posture support."
+      }
+    ];
+
+    // --------------------------------------------------------------------------
+    // 2. STATE MANAGEMENT & LOCAL STORAGE
+    // --------------------------------------------------------------------------
+    const STORAGE_KEY = 'home_furniture_design_chairs_v1';
+    const CART_STORAGE_KEY = 'hfd_user_cart';
+    let chairs = [];
+    let cart = [];
+    let currentView = 'grid'; // 'grid' or 'table'
+    let pendingDeleteId = null;
+
+    function loadChairs() {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+          chairs = JSON.parse(stored);
+        } else {
+          chairs = [...INITIAL_CHAIRS];
+          saveChairsToStorage();
+        }
+      } catch (e) {
+        console.error('Error loading chairs from storage:', e);
+        chairs = [...INITIAL_CHAIRS];
+      }
+      loadCart();
+      render();
+    }
+
+    function saveChairsToStorage() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(chairs));
+      } catch (e) {
+        console.error('Error saving chairs to storage:', e);
+      }
+      updateMetrics();
+    }
+
+    function loadCart() {
+      try {
+        const storedCart = localStorage.getItem(CART_STORAGE_KEY);
+        if (storedCart) {
+          cart = JSON.parse(storedCart);
+        } else {
+          cart = [];
+        }
+      } catch (e) {
+        cart = [];
+      }
+      updateCartUI();
+    }
+
+    function saveCartToStorage() {
+      try {
+        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+      } catch (e) {
+        console.error('Error saving cart:', e);
+      }
+      updateCartUI();
+    }
+
+    function resetDefaultChairs() {
+      if (confirm('Reset your chair catalog back to the initial 8 luxury seating designs?')) {
+        chairs = [...INITIAL_CHAIRS];
+        saveChairsToStorage();
+        render();
+        showToast('Chair catalog restored to default showroom designs.');
+      }
+    }
+
+    // --------------------------------------------------------------------------
+    // 3. RENDER FUNCTION (Grid & Table Views)
+    // --------------------------------------------------------------------------
+    function render() {
+      const gridContainer = document.getElementById('chairsGrid');
+      const tableBody = document.getElementById('chairTableBody');
+      const filteredList = getFilteredAndSortedChairs();
+
+      updateMetrics();
+
+      if (filteredList.length === 0) {
+        gridContainer.innerHTML = `
+          <div class="empty-state">
+            <i class="fa-solid fa-chair"></i>
+            <h3>No chairs match your filter criteria</h3>
+            <p>Try clearing your search term, switching materials, or adjusting your seating category to explore our complete collection.</p>
+            <button class="btn-add-chair-top" onclick="resetFiltersAndSearch()">
+              <i class="fa-solid fa-filter-circle-xmark"></i>
+              <span>Clear All Filters</span>
+            </button>
+          </div>
+        `;
+        tableBody.innerHTML = `
+          <tr>
+            <td colspan="7" style="text-align: center; padding: 40px; color: var(--color-text-muted);">
+              No chair designs found matching your current filters.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      // 1. Render Grid View
+      let gridHTML = '';
+      filteredList.forEach(chair => {
+        let statusBadgeClass = 'badge-in-stock';
+        if (chair.status === 'Made to Order') statusBadgeClass = 'badge-made-to-order';
+        if (chair.status === 'Limited Batch') statusBadgeClass = 'badge-limited';
+
+        const hasDiscount = chair.originalPrice && Number(chair.originalPrice) > Number(chair.price);
+        let discountPercent = '';
+        if (hasDiscount) {
+          discountPercent = Math.round(((chair.originalPrice - chair.price) / chair.originalPrice) * 100);
+        }
+
+        gridHTML += `
+          <article class="chair-card" id="card-${chair.id}">
+            <div class="card-thumb-wrap">
+              <div class="card-badges">
+                <span class="badge ${statusBadgeClass}">${chair.status}</span>
+                <span class="badge badge-material">${chair.material}</span>
+                <span class="badge badge-type">${chair.category || 'Seating'}</span>
+              </div>
+
+              ${hasDiscount ? `<span class="discount-ribbon">Save ${discountPercent}%</span>` : ''}
+
+              <div class="card-quick-actions">
+                <button class="icon-action-btn btn-edit" onclick="openEditModal('${chair.id}')" title="Edit Chair Details">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <button class="icon-action-btn btn-delete" onclick="promptDelete('${chair.id}', '${escapeQuotes(chair.name)}')" title="Delete Chair">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
+
+              <img src="${chair.img}" alt="${chair.name}" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80'" loading="lazy" />
+            </div>
+
+            <div class="card-body">
+              <div class="card-category-line">
+                <span class="card-type">${chair.room || 'Accent Seating'}</span>
+                <span class="card-id-pill">ID: ${chair.id}</span>
+              </div>
+              <h3 class="card-title">${chair.name}</h3>
+              <div class="card-specs">
+                <i class="fa-solid fa-ruler-combined"></i>
+                <span>${chair.dimensions || `${chair.category} Dimensions`}</span>
+              </div>
+              <p class="card-description">${chair.description}</p>
+
+              <div class="card-footer">
+                <div class="price-container">
+                  <span class="price-main">₹${Number(chair.price).toLocaleString()}</span>
+                  ${hasDiscount ? `<span class="price-original">₹${Number(chair.originalPrice).toLocaleString()}</span>` : ''}
+                </div>
+                <button class="btn-add-cart" id="btn-cart-${chair.id}" onclick="addToCart('${chair.id}')">
+                  <i class="fa-solid fa-cart-plus"></i>
+                  <span>Add to Cart</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      });
+      gridContainer.innerHTML = gridHTML;
+
+      // 2. Render Table View
+      let tableHTML = '';
+      filteredList.forEach(chair => {
+        let statusBadgeClass = 'badge-in-stock';
+        if (chair.status === 'Made to Order') statusBadgeClass = 'badge-made-to-order';
+        if (chair.status === 'Limited Batch') statusBadgeClass = 'badge-limited';
+
+        tableHTML += `
+          <tr>
+            <td>
+              <img src="${chair.img}" alt="${chair.name}" class="table-thumb" onerror="this.src='https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80'" />
+            </td>
+            <td>
+              <strong>${chair.name}</strong>
+              <div style="font-size: 0.78rem; color: var(--color-accent); font-weight: 600;">
+                ${chair.category} &bull; ${chair.dimensions || ''}
+              </div>
+            </td>
+            <td><span class="badge badge-material">${chair.material}</span></td>
+            <td><span class="badge badge-type">${chair.room || 'Living Room'}</span></td>
+            <td><span class="badge ${statusBadgeClass}">${chair.status}</span></td>
+            <td><strong style="color: var(--color-primary-dark); font-size: 1.05rem;">₹${Number(chair.price).toLocaleString()}</strong></td>
+            <td>
+              <div style="display: flex; gap: 8px; align-items: center;">
+                <button class="icon-action-btn btn-edit" onclick="openEditModal('${chair.id}')" title="Edit">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <button class="icon-action-btn btn-delete" onclick="promptDelete('${chair.id}', '${escapeQuotes(chair.name)}')" title="Delete">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+                <button class="btn-add-cart" style="padding: 6px 12px; font-size: 0.8rem;" onclick="addToCart('${chair.id}')" title="Add to Cart">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      });
+      tableBody.innerHTML = tableHTML;
+    }
+
+    // --------------------------------------------------------------------------
+    // 4. METRICS & SEARCH/FILTER LOGIC
+    // --------------------------------------------------------------------------
+    function updateMetrics() {
+      document.getElementById('totalChairCount').textContent = chairs.length;
+      const inStock = chairs.filter(c => c.status === 'In Stock').length;
+      document.getElementById('inStockCount').textContent = inStock;
+
+      if (chairs.length > 0) {
+        const avg = Math.round(chairs.reduce((sum, c) => sum + Number(c.price), 0) / chairs.length);
+        document.getElementById('avgPriceDisplay').textContent = `₹${avg.toLocaleString()}`;
+        const uniqueMaterials = new Set(chairs.map(c => c.material)).size;
+        document.getElementById('materialsCount').textContent = uniqueMaterials;
+      } else {
+        document.getElementById('avgPriceDisplay').textContent = '₹0';
+        document.getElementById('materialsCount').textContent = '0';
+      }
+    }
+
+    function getFilteredAndSortedChairs() {
+      const searchTerm = document.getElementById('chairSearchInput').value.toLowerCase().trim();
+      const categoryVal = document.getElementById('categoryFilter').value;
+      const materialVal = document.getElementById('materialFilter').value;
+      const statusVal = document.getElementById('statusFilter').value;
+      const sortVal = document.getElementById('sortFilter').value;
+
+      let result = chairs.filter(chair => {
+        const matchesSearch = chair.name.toLowerCase().includes(searchTerm) ||
+                              chair.description.toLowerCase().includes(searchTerm) ||
+                              chair.material.toLowerCase().includes(searchTerm) ||
+                              (chair.dimensions && chair.dimensions.toLowerCase().includes(searchTerm)) ||
+                              (chair.room && chair.room.toLowerCase().includes(searchTerm)) ||
+                              (chair.category && chair.category.toLowerCase().includes(searchTerm));
+
+        const matchesCategory = (categoryVal === 'all') || (chair.category && chair.category.toLowerCase().includes(categoryVal.toLowerCase()));
+        const matchesMaterial = (materialVal === 'all') || (chair.material && chair.material.toLowerCase().includes(materialVal.toLowerCase()));
+        const matchesStatus = (statusVal === 'all') || (chair.status && chair.status.toLowerCase() === statusVal.toLowerCase());
+
+        return matchesSearch && matchesCategory && matchesMaterial && matchesStatus;
+      });
+
+      // Sorting
+      if (sortVal === 'price-low') {
+        result.sort((a, b) => Number(a.price) - Number(b.price));
+      } else if (sortVal === 'price-high') {
+        result.sort((a, b) => Number(b.price) - Number(a.price));
+      } else if (sortVal === 'name-asc') {
+        result.sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      return result;
+    }
+
+    function filterChairList() {
+      render();
+    }
+
+    function resetFiltersAndSearch() {
+      document.getElementById('chairSearchInput').value = '';
+      document.getElementById('categoryFilter').value = 'all';
+      document.getElementById('materialFilter').value = 'all';
+      document.getElementById('statusFilter').value = 'all';
+      document.getElementById('sortFilter').value = 'featured';
+      render();
+    }
+
+    function switchView(mode) {
+      currentView = mode;
+      const gridBtn = document.getElementById('gridViewBtn');
+      const tableBtn = document.getElementById('tableViewBtn');
+      const gridEl = document.getElementById('chairsGrid');
+      const tableEl = document.getElementById('chairsTableView');
+
+      if (mode === 'grid') {
+        gridBtn.classList.add('active');
+        tableBtn.classList.remove('active');
+        gridEl.style.display = 'grid';
+        tableEl.style.display = 'none';
+      } else {
+        tableBtn.classList.add('active');
+        gridBtn.classList.remove('active');
+        gridEl.style.display = 'none';
+        tableEl.style.display = 'block';
+      }
+    }
+
+    // --------------------------------------------------------------------------
+    // 5. CREATE & UPDATE (MODAL FORM HANDLER)
+    // --------------------------------------------------------------------------
+    const modalBackdrop = document.getElementById('chairModal');
+    const chairForm = document.getElementById('chairForm');
+    const modalTitle = document.getElementById('modalTitle');
+    const saveBtnText = document.getElementById('saveBtnText');
+    const chairIdInput = document.getElementById('chairIdInput');
+    const chairNameInput = document.getElementById('chairNameInput');
+    const chairCategoryInput = document.getElementById('chairCategoryInput');
+    const chairRoomInput = document.getElementById('chairRoomInput');
+    const chairPriceInput = document.getElementById('chairPriceInput');
+    const chairOriginalPriceInput = document.getElementById('chairOriginalPriceInput');
+    const chairMaterialInput = document.getElementById('chairMaterialInput');
+    const chairStatusInput = document.getElementById('chairStatusInput');
+    const chairDimensionsInput = document.getElementById('chairDimensionsInput');
+    const chairImageInput = document.getElementById('chairImageInput');
+    const chairDescriptionInput = document.getElementById('chairDescriptionInput');
+    const formImagePreview = document.getElementById('formImagePreview');
+    const previewFallbackText = document.getElementById('previewFallbackText');
+
+    function openCreateModal() {
+      chairForm.reset();
+      chairIdInput.value = '';
+      modalTitle.innerHTML = '<i class="fa-solid fa-plus" style="color: var(--color-accent);"></i><span>Add New Chair</span>';
+      saveBtnText.textContent = 'Create Chair Product';
+      updateImagePreview('');
+      modalBackdrop.classList.add('open');
+      setTimeout(() => chairNameInput.focus(), 150);
+    }
+
+    function openEditModal(id) {
+      const chair = chairs.find(c => c.id === id);
+      if (!chair) return;
+
+      chairIdInput.value = chair.id;
+      chairNameInput.value = chair.name;
+      chairCategoryInput.value = chair.category || 'Lounge';
+      chairRoomInput.value = chair.room || 'Living Room Accent';
+      chairPriceInput.value = chair.price;
+      chairOriginalPriceInput.value = chair.originalPrice || '';
+      chairMaterialInput.value = chair.material;
+      chairStatusInput.value = chair.status;
+      chairDimensionsInput.value = chair.dimensions || '';
+      chairImageInput.value = chair.img;
+      chairDescriptionInput.value = chair.description;
+
+      updateImagePreview(chair.img);
+
+      modalTitle.innerHTML = '<i class="fa-solid fa-pen-to-square" style="color: var(--color-accent);"></i><span>Edit Chair Details</span>';
+      saveBtnText.textContent = 'Update Product';
+
+      modalBackdrop.classList.add('open');
+      setTimeout(() => chairNameInput.focus(), 150);
+    }
+
+    function closeModal() {
+      modalBackdrop.classList.remove('open');
+    }
+
+    modalBackdrop.addEventListener('click', (e) => {
+      if (e.target === modalBackdrop) closeModal();
+    });
+
+    function updateImagePreview(url) {
+      if (url && url.trim().length > 5) {
+        formImagePreview.src = url.trim();
+        formImagePreview.style.display = 'block';
+        previewFallbackText.style.display = 'none';
+      } else {
+        formImagePreview.src = '';
+        formImagePreview.style.display = 'none';
+        previewFallbackText.style.display = 'block';
+      }
+    }
+
+    function applyPresetImage(url) {
+      chairImageInput.value = url;
+      updateImagePreview(url);
+    }
+
+    function handleSaveChair(e) {
+      e.preventDefault();
+
+      const id = chairIdInput.value;
+      const name = chairNameInput.value.trim();
+      const category = chairCategoryInput.value;
+      const room = chairRoomInput.value;
+      const price = parseFloat(chairPriceInput.value);
+      const originalPriceVal = chairOriginalPriceInput.value.trim();
+      const originalPrice = originalPriceVal ? parseFloat(originalPriceVal) : null;
+      const material = chairMaterialInput.value;
+      const status = chairStatusInput.value;
+      const dimensions = chairDimensionsInput.value.trim() || `${category} Seating`;
+      const img = chairImageInput.value.trim();
+      const description = chairDescriptionInput.value.trim();
+
+      if (!name || isNaN(price) || !img || !description) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      if (id) {
+        // UPDATE EXISTING
+        const index = chairs.findIndex(c => c.id === id);
+        if (index !== -1) {
+          chairs[index] = {
+            id,
+            name,
+            category,
+            room,
+            price,
+            originalPrice,
+            material,
+            status,
+            dimensions,
+            img,
+            description
+          };
+          showToast(`Updated "${name}" successfully!`);
+        }
+      } else {
+        // CREATE NEW
+        const newId = 'chair-' + Date.now().toString(36);
+        const newChair = {
+          id: newId,
+          name,
+          category,
+          room,
+          price,
+          originalPrice,
+          material,
+          status,
+          dimensions,
+          img,
+          description
+        };
+        chairs.unshift(newChair);
+        showToast(`Created new chair "${name}"!`);
+      }
+
+      saveChairsToStorage();
+      closeModal();
+      render();
+    }
+
+    // --------------------------------------------------------------------------
+    // 6. DELETE OPERATION (WITH CONFIRMATION MODAL)
+    // --------------------------------------------------------------------------
+    const deleteModal = document.getElementById('deleteModal');
+    const deleteChairName = document.getElementById('deleteChairName');
+
+    function promptDelete(id, name) {
+      pendingDeleteId = id;
+      deleteChairName.textContent = `"${name}"`;
+      deleteModal.classList.add('open');
+    }
+
+    function closeDeleteModal() {
+      deleteModal.classList.remove('open');
+      pendingDeleteId = null;
+    }
+
+    deleteModal.addEventListener('click', (e) => {
+      if (e.target === deleteModal) closeDeleteModal();
+    });
+
+    function confirmDeleteChair() {
+      if (!pendingDeleteId) return;
+
+      const deletedItem = chairs.find(c => c.id === pendingDeleteId);
+      const cardEl = document.getElementById(`card-${pendingDeleteId}`);
+
+      if (cardEl) {
+        cardEl.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
+        cardEl.style.transform = 'scale(0.85)';
+        cardEl.style.opacity = '0';
+      }
+
+      setTimeout(() => {
+        chairs = chairs.filter(c => c.id !== pendingDeleteId);
+        saveChairsToStorage();
+        closeDeleteModal();
+        render();
+        showToast(`Chair ${deletedItem ? `"${deletedItem.name}"` : ''} has been removed.`);
+      }, 250);
+    }
+
+    // --------------------------------------------------------------------------
+    // 7. ADD TO CART FUNCTIONALITY & CART DRAWER
+    // --------------------------------------------------------------------------
+    const cartCountBadge = document.getElementById('cartCountBadge');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartBackdrop = document.getElementById('cartBackdrop');
+    const cartItemsList = document.getElementById('cartItemsList');
+    const cartSubtotalAmount = document.getElementById('cartSubtotalAmount');
+
+    function openCart() {
+      cartDrawer.classList.add('open');
+      cartBackdrop.classList.add('active');
+    }
+
+    function closeCart() {
+      cartDrawer.classList.remove('open');
+      cartBackdrop.classList.remove('active');
+    }
+
+    function addToCart(chairId) {
+      const chair = chairs.find(c => c.id === chairId);
+      if (!chair) return;
+
+      // Handle both numerical and string IDs for store compatibility
+      const existing = cart.find(item => item.id == chair.id);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({
+          id: chair.id,
+          name: chair.name,
+          price: chair.price,
+          image: chair.img,
+          img: chair.img,
+          quantity: 1
+        });
+      }
+
+      // Button animation
+      const btn = document.getElementById(`btn-cart-${chair.id}`);
+      if (btn) {
+        const originalHTML = btn.innerHTML;
+        btn.classList.add('added');
+        btn.innerHTML = '<i class="fa-solid fa-check"></i> <span>Added ✓</span>';
+        setTimeout(() => {
+          btn.classList.remove('added');
+          btn.innerHTML = originalHTML;
+        }, 1200);
+      }
+
+      // Badge bump animation
+      cartCountBadge.classList.add('bump');
+      setTimeout(() => cartCountBadge.classList.remove('bump'), 300);
+
+      saveCartToStorage();
+      showToast(`Added "${chair.name}" to cart!`);
+    }
+
+    function changeCartQty(id, delta) {
+      const item = cart.find(i => i.id == id);
+      if (!item) return;
+
+      item.quantity += delta;
+      if (item.quantity <= 0) {
+        cart = cart.filter(i => i.id != id);
+      }
+      saveCartToStorage();
+    }
+
+    function removeCartItem(id) {
+      cart = cart.filter(i => i.id != id);
+      saveCartToStorage();
+      showToast('Item removed from cart.');
+    }
+
+    function updateCartUI() {
+      const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCountBadge.textContent = totalCount;
+
+      if (cart.length === 0) {
+        cartItemsList.innerHTML = `
+          <div style="text-align: center; margin: auto 0; color: var(--color-text-muted);">
+            <i class="fa-solid fa-chair" style="font-size: 2.6rem; color: var(--color-beige-dark); margin-bottom: 12px;"></i>
+            <p style="font-weight: 600; color: var(--color-primary-dark);">Your shopping bag is empty.</p>
+            <p style="font-size: 0.8rem; margin-top: 4px;">Click "Add to Cart" on any chair above to start!</p>
+          </div>
+        `;
+        cartSubtotalAmount.textContent = '₹0.00';
+      } else {
+        let itemsHTML = '';
+        let subtotal = 0;
+
+        cart.forEach(item => {
+          const itemTotal = item.price * item.quantity;
+          subtotal += itemTotal;
+          const displayImg = item.image || item.img || 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80';
+
+          itemsHTML += `
+            <div class="cart-item-row">
+              <img src="${displayImg}" alt="${item.name}" class="cart-item-img" onerror="this.src='https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80'" />
+              <div class="cart-item-info">
+                <h4 class="cart-item-title">${item.name}</h4>
+                <div class="cart-item-price">₹${Number(item.price).toLocaleString()}</div>
+                <div class="qty-controls">
+                  <button class="qty-btn" onclick="changeCartQty('${item.id}', -1)">-</button>
+                  <span style="font-size: 0.88rem; font-weight: 700; min-width: 20px; text-align: center;">${item.quantity}</span>
+                  <button class="qty-btn" onclick="changeCartQty('${item.id}', 1)">+</button>
+                </div>
+              </div>
+              <button class="cart-remove-btn" onclick="removeCartItem('${item.id}')" title="Remove">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+          `;
+        });
+
+        cartItemsList.innerHTML = itemsHTML;
+        cartSubtotalAmount.textContent = `₹${subtotal.toLocaleString()}`;
+      }
+    }
+
+    function proceedToCheckout() {
+      if (cart.length === 0) {
+        showToast('Your cart is empty.');
+        return;
+      }
+      showToast('Redirecting to checkout preview...');
+      setTimeout(() => {
+        window.location.href = 'cart.html';
+      }, 500);
+    }
+
+    // --------------------------------------------------------------------------
+    // 8. TOAST NOTIFICATION UTILITY
+    // --------------------------------------------------------------------------
+    let toastTimeout;
+    function showToast(message) {
+      const toast = document.getElementById('toastNotification');
+      const toastMsg = document.getElementById('toastMessage');
+      toastMsg.textContent = message;
+
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    function escapeQuotes(str) {
+      return (str || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+    }
+
+    // Keyboard shortcuts (Escape closes modals)
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+        closeDeleteModal();
+        closeCart();
+      }
+    });
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      loadChairs();
+    });
+  </script>
+</body>
+</html>
